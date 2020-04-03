@@ -25,9 +25,9 @@ public class SignHelper {
      * @throws UnsupportedEncodingException
      * @throws InvalidKeyException
      */
-    public static String sign(Map<String, String> params, String suiteSecret) throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException {
+    public static String sign(Map<String, Object> params, String suiteSecret) throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException {
         // use tree map to sort params by name
-        Map<String, String> treeMap;
+        Map<String, Object> treeMap;
         if (params instanceof TreeMap) {
             treeMap = params;
         } else {
@@ -35,7 +35,7 @@ public class SignHelper {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<String, String> entry : treeMap.entrySet()) {
+        for (Map.Entry<String, Object> entry : treeMap.entrySet()) {
             stringBuilder.append(entry.getKey()).append(entry.getValue());
         }
 

@@ -110,11 +110,11 @@ public class RequestTool {
      * @return
      * @throws IOException
      */
-    public static String doGet(String requestUrl, Map<String, String> paramMap) throws IOException {
+    public static String doGet(String requestUrl, Map<String, Object> paramMap) throws IOException {
         CloseableHttpClient httpClient = getHttpClient();
         StringBuilder param = new StringBuilder("?");
         if (paramMap != null) {
-            for(Map.Entry<String, String> entry: paramMap.entrySet()) {
+            for(Map.Entry<String, Object> entry: paramMap.entrySet()) {
                 param.append(entry.getKey());
                 param.append("=");
                 param.append(entry.getValue());
