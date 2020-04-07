@@ -21,7 +21,7 @@
 常用获取员工信息接口流程
 ```
 获取token接口-->免密登录接口-->根据手机号或者邮箱查询员工-->根据id查询职位信息
-示例参考StaffTest.java 和 JobTest.java 以及 OrgStaffTest。java
+示例参考StaffTest.java 和 JobTest.java 以及 OrgStaffTest.java
 ```
 
 ####常见问题
