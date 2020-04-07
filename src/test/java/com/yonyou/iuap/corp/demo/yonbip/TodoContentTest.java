@@ -1,8 +1,8 @@
 package com.yonyou.iuap.corp.demo.yonbip;
 
-import com.yonyou.iuap.corp.demo.model.ToDoContent;
-import com.yonyou.iuap.corp.demo.service.AccessTokenService;
-import com.yonyou.iuap.corp.demo.service.ApiToDoCenterService;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ToDoContent;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiToDoCenterService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

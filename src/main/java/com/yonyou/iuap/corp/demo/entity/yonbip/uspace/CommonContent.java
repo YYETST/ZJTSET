@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.model;
+package com.yonyou.iuap.corp.demo.entity.yonbip.uspace;
 
 /**
  * 通用的消息体参数

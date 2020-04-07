@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.model;
+package com.yonyou.iuap.corp.demo.entity.yonbip.uspace;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -5,7 +5,7 @@ import com.yonyou.iuap.corp.demo.constraint.EventType;
 import com.yonyou.iuap.corp.demo.crypto.EncryptionHolder;
 import com.yonyou.iuap.corp.demo.crypto.EventCrypto;
 import com.yonyou.iuap.corp.demo.crypto.PrivateAppCrypto;
-import com.yonyou.iuap.corp.demo.model.EventContent;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.EventContent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

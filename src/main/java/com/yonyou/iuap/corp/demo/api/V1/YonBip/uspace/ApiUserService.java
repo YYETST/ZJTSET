@@ -1,7 +1,7 @@
-package com.yonyou.iuap.corp.demo.service;
+package com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace;
 
-import com.yonyou.iuap.corp.demo.model.UserIdsParam;
-import com.yonyou.iuap.corp.demo.model.UserPageParam;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.UserIdsParam;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.UserPageParam;
 import com.yonyou.iuap.corp.demo.utils.HttpClientUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

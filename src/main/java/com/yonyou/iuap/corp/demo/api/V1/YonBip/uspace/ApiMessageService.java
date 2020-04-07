@@ -1,6 +1,6 @@
-package com.yonyou.iuap.corp.demo.service;
+package com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace;
 
-import com.yonyou.iuap.corp.demo.model.NotifyShareContent;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.NotifyShareContent;
 import com.yonyou.iuap.corp.demo.utils.HttpClientUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

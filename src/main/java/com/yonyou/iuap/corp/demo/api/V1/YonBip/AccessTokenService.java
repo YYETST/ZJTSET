@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.service;
+package com.yonyou.iuap.corp.demo.api.V1.YonBip;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

@@ -1,10 +1,10 @@
 package com.yonyou.iuap.corp.demo.web;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yonyou.iuap.corp.demo.model.UserIdsParam;
-import com.yonyou.iuap.corp.demo.service.AccessTokenService;
-import com.yonyou.iuap.corp.demo.service.ApiFreeLoginService;
-import com.yonyou.iuap.corp.demo.service.ApiUserService;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.UserIdsParam;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiFreeLoginService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

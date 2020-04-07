@@ -1,7 +1,8 @@
 package com.yonyou.iuap.corp.demo.web;
 
-import com.yonyou.iuap.corp.demo.model.*;
-import com.yonyou.iuap.corp.demo.service.*;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.*;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

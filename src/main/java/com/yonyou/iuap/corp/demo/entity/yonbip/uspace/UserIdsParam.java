@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.model;
+package com.yonyou.iuap.corp.demo.entity.yonbip.uspace;
 
 import java.util.List;
 

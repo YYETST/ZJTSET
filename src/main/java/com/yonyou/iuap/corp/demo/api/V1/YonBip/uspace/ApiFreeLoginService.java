@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.service;
+package com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace;
 
 import com.yonyou.iuap.corp.demo.utils.HttpClientUtil;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.model;
+package com.yonyou.iuap.corp.demo.entity.yonbip.uspace;
 
 /**
  * 分页查询参数
