@@ -38,15 +38,18 @@ public class TodoContentTest {
     @Test
     public void todo() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
-        toDoContent.setAppId("153797");
+        toDoContent.setAppId("209429");
         toDoContent.setTitle("测试");
         toDoContent.setTypeName("测试类型");
-        toDoContent.setBusinessKey("1234567890");
+        toDoContent.setBusinessKey("123456");
         toDoContent.setContent("创建待办事件测试");
         List yyUserIds = new ArrayList();
         yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        yyUserIds.add("0f059088-9c92-4769-a3e7-8f1a341cc3df");
+        yyUserIds.add("c4cf4330-86e2-4d89-9b4d-cea1bf3369eb");
+        yyUserIds.add("c7089a16-7725-4169-ad8c-30e67aa3a34e");
         toDoContent.setYyUserIds(yyUserIds);
-        toDoContent.setTenantId("gbpwpfil");
+        toDoContent.setTenantId("zjhrilpq");
         String result = apiToDoCenterService.sendToDo(toDoContent,accessTokenService.getAccessToken());
         System.out.println(result);
     }

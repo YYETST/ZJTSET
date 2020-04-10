@@ -34,7 +34,7 @@ public class StaffTest {
     @Test
     public void info_by_mobile_email() throws Exception {
         String type = "1";
-        String field = "18810487612";// "17352777151";
+        String field = "17352777151";// "17352777151";
         String result = apiStaffService.searchStaffByMobileOrEmail(type, field, accessTokenService.getAccessToken());
         System.out.println(result);
     }
