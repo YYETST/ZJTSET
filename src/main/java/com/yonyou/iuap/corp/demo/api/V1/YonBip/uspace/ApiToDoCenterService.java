@@ -21,6 +21,12 @@ public class ApiToDoCenterService {
 
     private final static String URL_REVOCATION = "/open/diwork/todocenter/revocation";
 
+    @Value("${api.uspace.approve.getTaskCount}")
+    private String GET_TAST_COUNT;
+
+    @Value("${api.todocenter.todo}")
+    private String TODO;
+
     @Value("${api.host}")
     private String apiHost;
 
@@ -32,7 +38,8 @@ public class ApiToDoCenterService {
      * @throws Exception
      */
     public String sendToDo(ToDoContent toDoContent,String accessToken) throws Exception{
-        String requestUrl = apiHost + URL_TO_DO + "?access_token=" + accessToken;
+        String requestUrl = TODO + "?access_token=" + accessToken;
+        //String requestUrl = apiHost + URL_TO_DO + "?access_token=" + accessToken;
         String result = HttpClientUtil.jsonPost(requestUrl,toDoContent);
         logger.info("sendToDo result:{}", result);
         return result;
@@ -63,6 +70,20 @@ public class ApiToDoCenterService {
         String requestUrl = apiHost + URL_REVOCATION + "?access_token=" + accessToken;
         String result = HttpClientUtil.jsonPost(requestUrl,toDoContent);
         logger.info("sendToDo result:{}", result);
+        return result;
+    }
+
+    /**
+     * @description:  根据应用ID获取待办数量（新版）
+     * @author: kw
+     * @date: 2020/4/13
+     * @param: [toDoContent, accessToken]
+     * @return: java.lang.String
+     */
+    public String getTaskCount(ToDoContent toDoContent,String accessToken) throws Exception {
+        String requestUrl = GET_TAST_COUNT + "?access_token=" + accessToken;
+        String result = HttpClientUtil.jsonPost(requestUrl,toDoContent);
+        logger.info("getTaskCount result:{}", result);
         return result;
     }
 
