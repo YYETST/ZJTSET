@@ -1,0 +1,168 @@
+{
+  "getAuthData": {
+    "flag": "0",
+    "desc": "OK",
+    "data": {
+      "token": "token",
+      "expire": 7200,
+      "userid": "zhangsan"
+    }
+  },
+  "getTaskList": {
+    "data": {
+      "data": [
+        {
+          "billData": [
+            {
+              "name": "姓名",
+              "value": "张三"
+            },
+            {
+              "name": "流程",
+              "value": "初审"
+            }
+          ],
+          "taskId": "68fd48b4-ead6-11e7-9523-0242ac1e1104",
+          "title": "张三的差旅费",
+          "url": "详情地址",
+          "taskTime": 1514359226000,
+          "committer": "提交人",
+          "status": 3
+        }
+      ],
+      "openType": "DIRECT",
+      "moreUrl": "https://yonsuite.diwork.com/#/",
+      "total": 1
+    },
+    "desc": "OK",
+    "flag": "0"
+  },
+  "getTaskCount": {
+    "flag": "0",
+    "data": 25,
+    "desc": "OK"
+  },
+  "getCCList": {
+    "data": {
+      "data": [{
+        "billData": [
+          {
+            "name": "姓名",
+            "value": "张三"
+          },{
+            "name": "流程",
+            "value": "初审"
+          }],
+        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1104",
+        "title": "张三的差旅费",
+        "url": "详情地址",
+        "taskTime": 1514359226000,
+        "committer": "提交人",
+        "status": 3
+      }
+      ],
+      "openType": "DIRECT",
+      "moreUrl": "https://yonsuite.diwork.com/#/",
+      "total":1
+    },
+    "desc": "OK",
+    "flag": "0"
+  },
+  "getSponsorList":{
+    "data": {
+      "data": [{
+        "billData": [
+          {
+            "name": "姓名",
+            "value": "张三"
+          },{
+            "name": "流程",
+            "value": "初审"
+          }],
+        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1104",
+        "title": "张三的差旅费",
+        "url": "详情地址",
+        "taskTime": 1514359226000,
+        "committer": "提交人",
+        "status": 3
+      }
+      ],
+      "openType": "DIRECT",
+      "moreUrl": "https://yonsuite.diwork.com/#/",
+      "total":1
+    },
+    "desc": "OK",
+    "flag": "0"
+  },
+  "doAction": {
+    "data": {
+      "taskId":"assadsadsadsa",
+      "status":false,
+      "errmsg":"失败原因",
+      "multi":false
+    },
+    "desc": "OK",
+    "flag": "0"
+  },
+  "getFilters": {
+    "code": "",
+    "data": [
+      {
+        "filterId": "receiveDate",
+        "name": "接收时间",
+        "combo": 0,
+        "type": "date",
+        "status": "1,2,3",
+        "params": [
+          {
+            "name": "今天",
+            "value": "today"
+          },
+          {
+            "name": "昨天",
+            "value": "yesterday"
+          },
+          {
+            "name": "本周",
+            "value": "thisWeek"
+          },
+          {
+            "name": "上周",
+            "value": "lastWeek"
+          },
+          {
+            "name": "本月",
+            "value": "month"
+          },
+          {
+            "name": "自定义",
+            "value": "custom"
+          }
+        ]
+      },
+      {
+        "filterId": "processKey",
+        "name": "单据类型",
+        "combo": 0,
+        "type": "choice",
+        "status": "1,2,3",
+        "params": [
+          {
+            "name": "请假单",
+            "value": "QJD"
+          },
+          {
+            "name": "补考勤",
+            "value": "BKQ"
+          },
+          {
+            "name": "报销单",
+            "value": "BXD"
+          }
+        ]
+      }
+    ],
+    "desc": "OK",
+    "flag": "0"
+  }
+}
