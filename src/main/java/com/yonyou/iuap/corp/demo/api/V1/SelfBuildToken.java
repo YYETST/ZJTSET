@@ -33,7 +33,6 @@ public class SelfBuildToken {
 
     @Cacheable(value = "access_token")
     public String createToken() throws Exception {
-        System.out.println("走进了方法");
         String token = null;
         Map<String, Object> params = new HashMap<String, Object>();
         // 除签名外的其他参数

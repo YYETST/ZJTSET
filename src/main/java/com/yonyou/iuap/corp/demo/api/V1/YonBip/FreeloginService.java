@@ -34,11 +34,32 @@ public class FreeloginService extends BaseApi {
         return ncLoginEntity;
     }
 
+    /**
+     * 从request中获取code
+     * @param request
+     * @return
+     * @throws Exception
+     */
     public OtherLoginEntity otherLogin(HttpServletRequest request) throws Exception {
         Map<String,Object> params = getCode(request);
         //是否用户返回手机号等信息
         params.put("flag",true);
-        OtherLoginEntity otherLoginEntity= doGet(nc_uri,params,OtherLoginEntity.class);
+        OtherLoginEntity otherLoginEntity= doGet(other_uri,params,OtherLoginEntity.class);
+        return otherLoginEntity;
+    }
+
+
+    /**
+     * 为了方便测试我们传入一个code  ----仅供测试使用
+     * @return
+     * @throws Exception
+     */
+    public OtherLoginEntity otherLoginTest(String code) throws Exception {
+        Map<String,Object> params = new HashMap<String,Object>();
+        params.put("code",code);
+        //是否用户返回手机号等信息
+        params.put("flag",true);
+        OtherLoginEntity otherLoginEntity= doGet(other_uri,params,OtherLoginEntity.class);
         return otherLoginEntity;
     }
 
