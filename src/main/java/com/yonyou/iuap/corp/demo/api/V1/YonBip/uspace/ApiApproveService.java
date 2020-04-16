@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApiApproveService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ApiMessageService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiApproveService.class);
 
     @Value("${api.uspace.approve.taskCount}")
     private String TASK_COUNT;

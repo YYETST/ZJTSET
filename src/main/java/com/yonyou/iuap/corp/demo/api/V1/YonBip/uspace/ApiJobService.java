@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public class ApiJobService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ApiUserService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiJobService.class);
 
     @Value("${api.uspace.job.jobpost_by_id}")
     private String JOB_POST_BY_ID_URL;

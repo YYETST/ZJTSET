@@ -33,7 +33,7 @@ public class ApiController {
     private ApiToDoCenterService apiToDoCenterService;
 
     @Autowired
-    private ApiMessageService apiMessageService;
+    private ApiNotifyService apiMessageService;
 
     @Autowired
     private ApiJsApiService apiJsApiService;

@@ -17,7 +17,7 @@ import java.util.Map;
 @Service
 public class ApiStaffService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ApiUserService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiStaffService.class);
 
     private final static String URL_STAFF_PAGE_LIST = "/open/diwork/staff/page_list";
 

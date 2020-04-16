@@ -136,7 +136,7 @@ public class HttpClientUtil {
         try {
             httpClient = createClient(url, getHttpConfig(configList));
             HttpPost httpPost = new HttpPost(url);
-
+            System.out.println("请求参数："+JSON.toJSONString(paramVO));
             StringEntity requestEntity = new StringEntity(JSON.toJSONString(paramVO), "UTF-8");
             requestEntity.setContentType("application/json");
             httpPost.setEntity(requestEntity);
