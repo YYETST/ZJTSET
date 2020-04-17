@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.*;
+import java.util.Date;
 
 /**
  * @program: corp-demo
@@ -18,7 +19,13 @@ public class JsonUtil {
 
     private static final String JSON_URL = "yonbip/approve.center/JsonData.json";
 
-    //读取json文件
+    /**
+     * @description:  读取json文件
+     * @author: kw
+     * @date: 2020/4/17
+     * @param: [fileName]
+     * @return: java.lang.String
+     */
     public static String readJsonFile(String fileName) {
         logger.info("————开始读取" + fileName + "文件————");
         String jsonStr = "";
@@ -43,18 +50,28 @@ public class JsonUtil {
         }
     }
 
+    /**
+     * @description:  根据action获取不同的json数据
+     * @author: kw
+     * @date: 2020/4/17
+     * @param: [action]
+     * @return: com.alibaba.fastjson.JSONObject
+     */
     public static JSONObject getJSONDataByAction(String action) {
         String path = JsonUtil.class.getClassLoader().getResource(JSON_URL).getPath();
         String json = JsonUtil.readJsonFile(path);
         JSONObject result = JSON.parseObject(json).getJSONObject(action);
+        logger.info("执行动作:"+result.get("desc"));
         logger.info("返回的数据："+result);
         return result;
 
     }
+
     public static void main(String[] args) {
         String path = JsonUtil.class.getClassLoader().getResource(JSON_URL).getPath();
         String json = JsonUtil.readJsonFile(path);
         JSONObject result = JSON.parseObject(json).getJSONObject("getTaskList");
+        //System.out.println(new Date().getTime());
         System.out.println("返回的数据："+result);
     }
 }

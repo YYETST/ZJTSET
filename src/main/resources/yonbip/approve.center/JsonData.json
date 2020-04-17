@@ -1,7 +1,7 @@
 {
   "getAuthData": {
     "flag": "0",
-    "desc": "OK",
+    "desc": "获取认证信息:OK",
     "data": {
       "token": "token",
       "expire": 7200,
@@ -22,25 +22,43 @@
               "value": "初审"
             }
           ],
-          "taskId": "68fd48b4-ead6-11e7-9523-0242ac1e1104",
+          "taskId": "68fd48b4-ead6-11e7-9523-0242ac1e1105",
           "title": "张三的差旅费",
-          "url": "详情地址",
-          "taskTime": 1514359226000,
+          "url": "https://yonsuite.diwork.com/#/",
+          "taskTime": 1587102875302,
           "committer": "提交人",
-          "status": 3
+          "status": 1
+        },
+        {
+          "billData": [
+            {
+              "name": "姓名",
+              "value": "李四"
+            },
+            {
+              "name": "流程",
+              "value": "初审"
+            }
+          ],
+          "taskId": "68fd48b4-ead6-11e7-9523-0242ac1e1106",
+          "title": "李四的差旅费",
+          "url": "https://yonsuite.diwork.com/#/",
+          "taskTime": 1587102875302,
+          "committer": "提交人",
+          "status": 1
         }
       ],
       "openType": "DIRECT",
       "moreUrl": "https://yonsuite.diwork.com/#/",
       "total": 1
     },
-    "desc": "OK",
+    "desc": "获取审批列表:OK",
     "flag": "0"
   },
   "getTaskCount": {
     "flag": "0",
-    "data": 25,
-    "desc": "OK"
+    "data": 5,
+    "desc": "获取待办数量:OK"
   },
   "getCCList": {
     "data": {
@@ -53,19 +71,19 @@
             "name": "流程",
             "value": "初审"
           }],
-        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1104",
+        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
         "title": "张三的差旅费",
-        "url": "详情地址",
-        "taskTime": 1514359226000,
+        "url": "https://yonsuite.diwork.com/#/",
+        "taskTime": 1587102875302,
         "committer": "提交人",
-        "status": 3
+        "status": 1
       }
       ],
       "openType": "DIRECT",
       "moreUrl": "https://yonsuite.diwork.com/#/",
       "total":1
     },
-    "desc": "OK",
+    "desc": "获取抄送列表:OK",
     "flag": "0"
   },
   "getSponsorList":{
@@ -74,34 +92,40 @@
         "billData": [
           {
             "name": "姓名",
-            "value": "张三"
+            "value": "王五"
           },{
             "name": "流程",
             "value": "初审"
           }],
-        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1104",
-        "title": "张三的差旅费",
-        "url": "详情地址",
-        "taskTime": 1514359226000,
+        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1107",
+        "title": "王五的差旅费",
+        "url": "https://yonsuite.diwork.com/#/",
+        "taskTime": 1587102875302,
         "committer": "提交人",
-        "status": 3
+        "status": 1
       }
       ],
       "openType": "DIRECT",
       "moreUrl": "https://yonsuite.diwork.com/#/",
       "total":1
     },
-    "desc": "OK",
+    "desc": "获取我的发起列表:OK",
     "flag": "0"
   },
   "doAction": {
-    "data": {
-      "taskId":"assadsadsadsa",
-      "status":false,
-      "errmsg":"失败原因",
-      "multi":false
+    "data": [{
+      "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
+      "status":true,
+      "errmsg":"",
+      "multi":true
     },
-    "desc": "OK",
+      {
+        "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1106",
+        "status":true ,
+        "errmsg":"",
+        "multi":true
+      }],
+    "desc": "直接审批，批量审批接口:OK",
     "flag": "0"
   },
   "getFilters": {
@@ -162,7 +186,372 @@
         ]
       }
     ],
-    "desc": "OK",
+    "desc": "获取过滤器列表:OK",
     "flag": "0"
+  },
+  "pageMeta": {
+    "flag": "0",
+    "desc": "获取界面定义元数据:OK",
+    "data": {
+      "tab": [{
+        "urlType": "inner",
+        "showName": "详情",
+        "tabCode": "pageDetail"
+      }, {
+        "urlType": "inner",
+        "showName": "流程历史",
+        "tabCode": "flowHis"
+      }, {
+        "urlType": "inner",
+        "showName": "附件",
+        "tabCode": "annexList"
+      }],
+      "services": [{
+        "code": "pageDetail",
+        "resp": [
+          "pageDetail",
+          "pageUrls",
+          "annexNum",
+          "annexList",
+          "actionList",
+          "approveHint",
+          "pageContent",
+          "flowHisIcon",
+          "pageMain"
+        ],
+        "delay": false
+      }, {
+        "code": "flowHis",
+        "resp": ["flowHis"],
+        "delay": false
+      }]
+    }
+  },
+  "pageTitle": {
+    "flag":"0",
+    "desc":"获取标题:OK",
+    "data":{
+      "pageTitle":{
+        "data":"张一提交的报销单XXXXX",
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "pageStatus": {
+    "flag":"0",
+    "desc":"单据状态:OK",
+    "data":{
+      "pageStatus":{
+        "data":{
+          "text":"审批中",
+          "status":"going"
+        },
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "pageUrls": {
+    "flag": "0",
+    "desc": "头部跳转地址:OK",
+    "data": {
+      "pageUrls": {
+        "data": [
+          {
+            "urlType": "inner",
+            "showName": "单据全貌",
+            "tabCode": "pageContent"
+          },
+          {
+            "urlType": "inner",
+            "showName": "流程图",
+            "tabCode": "flowHisIcon"
+          },
+          {
+            "urlType": "url",
+            "showName": "baidu",
+            "url": "https://baidu.com"
+          }],
+        "flag": "0",
+        "desc": "sueecss",
+        "showError": false
+      }
+    }
+  },
+  "pageDetail": {
+    "flag":"0",
+    "desc":"页面详情:OK",
+    "data":{
+      "pageDetail":{
+        "data":{
+          "h":[
+            {
+              "tabName":"单据编号",
+              "tabContent":{
+                "itemData":[
+                  {
+                    "itemName":"单据日期",
+                    "itemValue":"2019-08-06"
+                  },
+                  {
+                    "itemName":"报销原币金额",
+                    "itemValue":"666"
+                  },
+                  {
+                    "itemName":"币种",
+                    "itemValue":"人民币"
+                  },
+                  {
+                    "itemName":"事由",
+                    "itemValue":""
+                  },
+                  {
+                    "itemName":"报销人",
+                    "itemValue":"张一"
+                  }]
+              }
+            }],
+          "b":[
+            {
+              "tabName":"",
+              "tabNum":"1",
+              "tabContent":[
+                {
+                  "itemData":[
+                    {
+                      "itemName":"报销类型",
+                      "itemValue":"",
+                      "igest":false
+                    },
+                    {
+                      "itemName":"收支项目",
+                      "itemValue":"",
+                      "igest":true
+                    },
+                    {
+                      "itemName":"金额",
+                      "itemValue":"666",
+                      "igest":true
+                    }]
+                }]
+            }],
+          "billtypename":"员工补助报销单"
+        },
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "pageContent": {
+    "flag":"0",
+    "desc":"单据正文:OK",
+    "data":{
+      "pageContent":{
+        "data":{
+          "html":"https://www.json.cn/"
+        },
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "flowHis": {
+    "flag":"0",
+    "desc":"流程历史:OK",
+    "data":{
+      "flowHis":{
+        "data":[
+          {
+            "note":"",
+            "dealTime":"2018-07-10 15:32:01",
+            "action":"提交",
+            "userName":"用户01",
+            "type":"commit",
+            "userId":"100xxxxxxMS9L",
+            "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
+            "status":"31"
+          },
+          {
+            "note":"批准(来自移动端)",
+            "dealTime":"2018-08-07 21:18:45",
+            "action":"批准",
+            "userName":"用户01",
+            "type":"going",
+            "userId":"100xxxxxx3MS9L",
+            "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
+            "status":"1"
+          }],
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "flowHisIcon": {
+    "flag":"0",
+    "desc":"流程图:OK",
+    "data":{
+      "flowHisIcon":{
+        "data":{
+          "icon":"https://cdn.yonyoucloud.com/pro/diwork/appicon/Artboard+2+Copy+12.png",
+          "subIcon":"https://cdn.yonyoucloud.com/pro/diwork/appicon/Artboard+2+Copy+22.png"
+        },
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "annexNum": {
+    "flag":"0",
+    "desc":"附件数量:OK",
+    "data":{
+      "annexNum":{
+        "data":{
+          "number":3
+        },
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false,
+        "resource":null,
+        "exception":null
+      }
+    }
+  },
+  "annexList": {
+    "flag":"0",
+    "desc":"附件列表:OK",
+    "data":{
+      "annexList":{
+        "data":[
+          {
+            "filetype":"xls",
+            "filename":"Context查询手册.xls",
+            "previewUrl":"https://www.json.cn/",
+            "downflag":"1",
+            "downloadUrl":"https://www.json.cn/",
+            "filesize":"35KB",
+            "dnType":"2",
+            "fileid":"c2157909-ad66-4ca2-b5f8-8ced719c50c7"
+          },
+          {
+            "filetype":"txt",
+            "filename":"新建文本文档.txt",
+            "previewUrl":"https://www.json.cn/",
+            "downflag":"1",
+            "downloadUrl":"https://www.json.cn/",
+            "filesize":"10KB",
+            "dnType":"2",
+            "fileid":"38e6b5a2-4c13-4cda-85fa-c38aa7384fc3"
+          }],
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "actionList": {
+    "flag":"0",
+    "desc":"审批动作列表:OK",
+    "data":{
+      "actionList":{
+        "data":[
+          {
+            "actionCode":"doAgree",
+            "actionName":"批准",
+            "order":0
+          },
+          {
+            "actionCode":"doDisAgree",
+            "actionName":"不批准",
+            "order":1
+          },
+          {
+            "actionCode":"doReject",
+            "actionName":"驳回",
+            "order":2
+          },
+          {
+            "actionCode":"doReassign",
+            "actionName":"改派",
+            "order":3
+          },
+          {
+            "actionCode":"doAddApprove",
+            "actionName":"加签",
+            "order":4
+          }],
+        "flag":"0",
+        "desc":"sueecss",
+        "showError":false
+      }
+    }
+  },
+  "actionDetail": {
+    "flag": "0",
+    "desc": "获取审批动作详情:OK",
+    "data": {
+      "actionDetail": {
+        "data": {
+          "detail":[
+            {
+              "paramType": "main",
+              "paramKey": "agree",
+              "paramPlace": "默认值",
+              "showPhBook": 0,
+              "savePhBook": 0,
+              "order": 0,
+              "required":true
+            },
+            {
+              "paramType": "handSign",
+              "paramKey": "agree",
+              "order": 1
+            },
+            {
+              "paramType": "text",
+              "paramKey": "agree",
+              "paramPlace": "默认值",
+              "paramName": "文本输入",
+              "order": 2
+            },
+            {
+              "paramType": "radio",
+              "paramKey": "agree",
+              "isMult": 0,
+              "paramName": "指派人",
+              "order": 3,
+              "redio": [
+                {
+                  "key": "Y",
+                  "value": "是"
+                }]
+            },
+            {
+              "paramType": "ref",
+              "paramKey": "agree123",
+              "paramName": "指派人",
+              "isMult": 0,
+              "ref": {
+                "action": "geteeee",
+                "showSearch": 0
+              },
+              "subRef": {
+                "isMult": 0,
+                "action": "geteeee",
+                "showSearch": 0
+              },
+              "order": 4
+            }
+          ],
+          "type":0
+        }
+      }
+    }
   }
 }

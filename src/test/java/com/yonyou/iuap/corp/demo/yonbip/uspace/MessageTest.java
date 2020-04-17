@@ -65,14 +65,14 @@ public class MessageTest {
         List to1 = new ArrayList();
         to1.add("GRP_152676_1585732568476");
         messageEntity.setSendScope("group");
-        messageEntity.setTo("GRP_152676_1585733930722");
+        messageEntity.setTo(to1);
         messageEntity.setContent("服务号发送文本消息测试-群组");
         String result = apiMessageService.service_txt(messageEntity,accessTokenService.getAccessToken());
         System.out.println(result);
     }
 
     /**
-     * @description:
+     * @description: 服务号发送图文消息
      * @author: kw
      * @date: 2020/4/14
      * @param: []
@@ -87,13 +87,14 @@ public class MessageTest {
         messageEntity.setSendScope("group");
         List to = new ArrayList();
         to.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
-        to.add("0f059088-9c92-4769-a3e7-8f1a341cc3df");
+        //to.add("0f059088-9c92-4769-a3e7-8f1a341cc3df");
 
         //group
         List to1 = new ArrayList();
         to1.add("GRP_152676_1585732568476");
+        to1.add("GRP_152676_1585732837804");
         messageEntity.setSendScope("group");
-        messageEntity.setTo("GRP_152676_1585732568476");
+        messageEntity.setTo(to1);
 
         ArticlesEntity articlesEntity = new ArticlesEntity();
         articlesEntity.setAuthor("作者姓名");
