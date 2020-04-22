@@ -39,10 +39,10 @@ public class TodoContentTest {
     public void todo() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
         toDoContent.setAppId("209429");
-        toDoContent.setTitle("测试待办1");
+        toDoContent.setTitle("测试待办2");
         toDoContent.setTypeName("测试类型");
-        toDoContent.setBusinessKey("11111114");
-        toDoContent.setContent("创建待办事件测试4");
+        toDoContent.setBusinessKey("111111145");
+        toDoContent.setContent("创建待办事件测试8");
         List yyUserIds = new ArrayList();
         yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
         //yyUserIds.add("0f059088-9c92-4769-a3e7-8f1a341cc3df");
@@ -50,8 +50,8 @@ public class TodoContentTest {
         //yyUserIds.add("c7089a16-7725-4169-ad8c-30e67aa3a34e");
         toDoContent.setYyUserIds(yyUserIds);
         toDoContent.setTenantId("zjhrilpq");
-        toDoContent.setmUrl("www.baidu.com");
-        toDoContent.setWebUrl("www.baidu.com");
+        toDoContent.setmUrl("https://www.baidu.com/");
+        toDoContent.setWebUrl("https://www.json.cn/?code=${esncode}");
         String result = apiToDoCenterService.sendToDo(toDoContent,accessTokenService.getAccessToken());
         System.out.println(result);
     }
@@ -66,8 +66,8 @@ public class TodoContentTest {
     @Test
     public void sendDone() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
-        toDoContent.setAppId("153797");
-        toDoContent.setBusinessKey("1234567890");
+        toDoContent.setAppId("152676");
+        toDoContent.setBusinessKey("12345678901");
         List yyUserIds = new ArrayList();
         yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
         toDoContent.setYyUserIds(yyUserIds);
@@ -86,7 +86,7 @@ public class TodoContentTest {
     @Test
     public void revocation() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
-        toDoContent.setAppId("153797");
+        toDoContent.setAppId("209429");
         toDoContent.setBusinessKey("1234567890");
         List yyUserIds = new ArrayList();
         yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
@@ -106,10 +106,14 @@ public class TodoContentTest {
     @Test
     public void getTaskCount() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
-        toDoContent.setAppId("153797");
+       // toDoContent.setAppId("153797");
         List yyUserIds = new ArrayList();
         yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
-        toDoContent.setYyUserIds(yyUserIds);
+       // toDoContent.setYyUserIds(yyUserIds);
+        toDoContent.setYhtUserId("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        List appIds = new ArrayList();
+        appIds.add("209429");
+        toDoContent.setAppIds(appIds);
         String result = apiToDoCenterService.getTaskCount(toDoContent,accessTokenService.getAccessToken());
         System.out.println(result);
     }

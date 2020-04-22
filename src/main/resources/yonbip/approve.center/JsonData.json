@@ -3,9 +3,9 @@
     "flag": "0",
     "desc": "获取认证信息:OK",
     "data": {
-      "token": "token",
+      "token": "f4be0f2745b348919b9fd5b8afbf8fd2",
       "expire": 7200,
-      "userid": "zhangsan"
+      "userid": "40b6b763-31af-46b3-b4b3-c62296914c6d"
     }
   },
   "getTaskList": {
@@ -15,7 +15,7 @@
           "billData": [
             {
               "name": "姓名",
-              "value": "张三"
+              "value": "张三呀"
             },
             {
               "name": "流程",
@@ -24,7 +24,7 @@
           ],
           "taskId": "68fd48b4-ead6-11e7-9523-0242ac1e1105",
           "title": "张三的差旅费",
-          "url": "https://yonsuite.diwork.com/#/",
+          "url": "USER_CUSTOMAPPROVE",
           "taskTime": 1587102875302,
           "committer": "提交人",
           "status": 1
@@ -42,7 +42,7 @@
           ],
           "taskId": "68fd48b4-ead6-11e7-9523-0242ac1e1106",
           "title": "李四的差旅费",
-          "url": "https://yonsuite.diwork.com/#/",
+          "url": "USER_CUSTOMAPPROVE",
           "taskTime": 1587102875302,
           "committer": "提交人",
           "status": 1
@@ -73,7 +73,7 @@
           }],
         "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
         "title": "张三的差旅费",
-        "url": "https://yonsuite.diwork.com/#/",
+        "url": "USER_CUSTOMAPPROVE",
         "taskTime": 1587102875302,
         "committer": "提交人",
         "status": 1
@@ -99,7 +99,7 @@
           }],
         "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1107",
         "title": "王五的差旅费",
-        "url": "https://yonsuite.diwork.com/#/",
+        "url": "USER_CUSTOMAPPROVE",
         "taskTime": 1587102875302,
         "committer": "提交人",
         "status": 1

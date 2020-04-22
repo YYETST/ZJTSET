@@ -1,9 +1,11 @@
 package com.yonyou.iuap.corp.demo.web;
 
-import com.alibaba.fastjson.JSONObject;
+
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.approve.center.ApproveCenterService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.approve.center.ApproveCenterEntity;
+import com.yonyou.iuap.corp.demo.utils.JsonUtil;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +29,21 @@ public class ApproveCenterController {
     private AccessTokenService accessTokenService;
 
     @RequestMapping("approveCenter")
-    public JSONObject handleApproveCenter(@RequestParam(required=false) String code, @RequestBody ApproveCenterEntity approveCenterEntity) throws Exception {
-        return approveCenterService.handleAction(accessTokenService.getAccessToken(),approveCenterEntity);
+    public JSONObject handleApproveCenter(@RequestParam(required=false) String code,
+                                          @RequestParam(required=false) String lang,
+                                          @RequestParam(required=false) String fromSys,
+                                          @RequestParam(required=false) String app_id,
+                                          @RequestBody String requstBody) throws Exception {
+        JSONObject json = JsonUtil.strToJson(requstBody);
+        return approveCenterService.handleAction(accessTokenService.getAccessToken(),json);
+    }
+
+    @RequestMapping("approveCenter2")
+    public JSONObject handleApproveCenter2(@RequestParam(required=false) String code,
+                                          @RequestParam(required=false) String lang,
+                                          @RequestParam(required=false) String fromSys,
+                                          @RequestParam(required=false) String app_id,
+                                          @RequestBody ApproveCenterEntity approveCenterEntity) throws Exception {
+        return approveCenterService.handleAction2(accessTokenService.getAccessToken(),approveCenterEntity);
     }
 }

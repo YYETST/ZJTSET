@@ -22,6 +22,12 @@ public class ToDoContent extends CommonContent {
      */
     private List<String> yyUserIds;
 
+
+    private String yhtUserId;
+    private List<String> appIds;
+
+
+
     /**
      * 移动端打开URL
      */
@@ -70,5 +76,21 @@ public class ToDoContent extends CommonContent {
 
     public void setWebUrl(String webUrl) {
         this.webUrl = webUrl;
+    }
+
+    public String getYhtUserId() {
+        return yhtUserId;
+    }
+
+    public void setYhtUserId(String yhtUserId) {
+        this.yhtUserId = yhtUserId;
+    }
+
+    public List<String> getAppIds() {
+        return appIds;
+    }
+
+    public void setAppIds(List<String> appIds) {
+        this.appIds = appIds;
     }
 }

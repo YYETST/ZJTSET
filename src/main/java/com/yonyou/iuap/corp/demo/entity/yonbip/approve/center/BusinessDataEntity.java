@@ -14,6 +14,7 @@ public class BusinessDataEntity {
     private String siteType; //请求来源  m-移动端，pc-PC端
     private String status;   //请求状态，1-待办，2-已办
     private Object filters; //用户选择的过滤器,如果用户没有选择，则没有此字段
+    private Object extraInfo;
 
 
     public String getKeywords() {
@@ -62,6 +63,14 @@ public class BusinessDataEntity {
 
     public void setFilters(Object filters) {
         this.filters = filters;
+    }
+
+    public Object getExtraInfo() {
+        return extraInfo;
+    }
+
+    public void setExtraInfo(Object extraInfo) {
+        this.extraInfo = extraInfo;
     }
 
 

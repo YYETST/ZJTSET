@@ -26,6 +26,9 @@ public class ApiStaffService {
     @Value("${api.host}")
     private String apiHost;
 
+    @Value("${api.uspace.staff.info_by_id}")
+    private String INFO_BY_USERID;
+
     /**
      * 分页查询当前租户员工列表
      * @param staffPageParam
@@ -56,6 +59,22 @@ public class ApiStaffService {
         String requestUrl = apiHost + URL_SEARCH_STAFF;
         String result = HttpClientUtil.get(requestUrl,params);
         logger.info("searchStaffByMobileOrEmail result:{}", result);
+        return result;
+    }
+
+    /**
+     * @description: 根据员工id查询员工信息接口
+     * @author: kw
+     * @date: 2020/4/20
+     * @param: [id, accessToken]
+     * @return: java.lang.String
+     */
+    public String info_by_id(String id, String accessToken) throws Exception {
+        Map<String, Object> params = new HashMap<>();
+        params.put("access_token", accessToken);
+        params.put("id", id);
+        String result = HttpClientUtil.get(INFO_BY_USERID,params);
+        logger.info("info_by_id result:{}", result);
         return result;
     }
 }

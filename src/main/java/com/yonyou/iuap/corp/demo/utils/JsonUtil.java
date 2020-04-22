@@ -1,7 +1,8 @@
 package com.yonyou.iuap.corp.demo.utils;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+
+import com.yonyou.iuap.corp.demo.entity.yonbip.approve.center.ApproveCenterEntity;
+import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.*;
@@ -60,17 +61,33 @@ public class JsonUtil {
     public static JSONObject getJSONDataByAction(String action) {
         String path = JsonUtil.class.getClassLoader().getResource(JSON_URL).getPath();
         String json = JsonUtil.readJsonFile(path);
-        JSONObject result = JSON.parseObject(json).getJSONObject(action);
-        logger.info("执行动作:"+result.get("desc"));
+        JSONObject result = JSONObject.fromObject(json).getJSONObject(action);
+        logger.info("执行动作:"+action+result.get("desc"));
         logger.info("返回的数据："+result);
         return result;
 
     }
 
+    public static JSONObject strToJson(String str) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject = JSONObject.fromObject(str);
+        } catch (Exception e) {
+            if("\"".equals(str.substring(0,1))
+                    && "\"".equals(str.substring(str.length()-1,str.length()))) {
+                //处理字符串
+                str = str.replace("\\","");
+                str = str.substring(1,str.length()-1);
+                jsonObject = JSONObject.fromObject(str);
+            }
+        }
+        return jsonObject;
+    }
+
     public static void main(String[] args) {
         String path = JsonUtil.class.getClassLoader().getResource(JSON_URL).getPath();
         String json = JsonUtil.readJsonFile(path);
-        JSONObject result = JSON.parseObject(json).getJSONObject("getTaskList");
+        JSONObject result = JSONObject.fromObject(json).getJSONObject("getTaskList");
         //System.out.println(new Date().getTime());
         System.out.println("返回的数据："+result);
     }

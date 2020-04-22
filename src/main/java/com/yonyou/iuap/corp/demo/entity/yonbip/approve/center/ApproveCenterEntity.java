@@ -12,6 +12,7 @@ public class ApproveCenterEntity {
     private BusinessDataEntity businessData;
     private Object authData;
 
+
     public String getAction() {
         return action;
     }
@@ -35,6 +36,5 @@ public class ApproveCenterEntity {
     public void setAuthData(Object authData) {
         this.authData = authData;
     }
-
 
 }
