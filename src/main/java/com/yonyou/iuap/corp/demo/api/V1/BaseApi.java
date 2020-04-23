@@ -68,8 +68,7 @@ public abstract class BaseApi {
     public <T> T requestPostPage1(String requestUri,Map<String,Object> params,Class<T> type) throws Exception {
         if(!params.containsKey("index"))params.put("index",pageIndex);
         if(!params.containsKey("size"))params.put("size",pageSize);
-        T data = doPost(requestUri,params,type);
-        return data;
+        return doPost(requestUri,params,type);
     }
 
     /**
@@ -79,14 +78,13 @@ public abstract class BaseApi {
     public <T> T requestPostPage2(String requestUri,Map<String,Object> params,Class<T> type) throws Exception {
         if(!params.containsKey("pageIndex"))params.put("pageIndex",pageIndex);
         if(!params.containsKey("pageSize"))params.put("pageSize",pageSize);
-        T data = doPost(requestUri,params,type);
-        return data;
+        return doPost(requestUri,params,type);
     }
 
 
     protected  String getRequestData(String json) throws Exception {
         String data = null;
-        Map<String,Object> result = gson.fromJson(json,Map.class);
+        Map result = gson.fromJson(json,Map.class);
         if(ResultCode.SUCCESS.getIndex().equals(result.get(ResultCode.SUCCESS.getName()))
                 ||ResultCode.SUCCESS2.getIndex().equals(result.get(ResultCode.SUCCESS2.getName()))){
             data = gson.toJson(result.get("data"));

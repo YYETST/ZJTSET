@@ -43,7 +43,7 @@ public class SelfBuildToken {
         params.put("signature", signature);
         String responseString = RequestTool.doGet(openApiUrl, params);
         Gson gson = new Gson();
-        Map<String,Object> result = gson.fromJson(responseString,Map.class);
+        Map result = gson.fromJson(responseString,Map.class);
         if(ResultCode.SUCCESS.getIndex().equals(result.get(ResultCode.SUCCESS.getName()))) {
             Map<String, Object> tokenInfo = (Map<String, Object>) result.get("data");
             String access_token = (String) tokenInfo.get("access_token");
