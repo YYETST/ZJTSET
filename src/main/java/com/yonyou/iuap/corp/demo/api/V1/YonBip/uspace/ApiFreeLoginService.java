@@ -40,7 +40,7 @@ public class ApiFreeLoginService {
         params.put("code", code);
         // userMobileEmailFlag="true",带用户手机号和邮箱返回
         if (!ObjectUtils.isEmpty(userMobileEmailFlag)) {
-            params.put("flag", userMobileEmailFlag + "");
+            params.put("flag", true + "");
         }
         String result = HttpClientUtil.get(apiHost + URL_FREE_LOGIN, params);
         logger.info("getFreeLoginInfo:{}", result);

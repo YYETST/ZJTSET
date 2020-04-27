@@ -22,7 +22,7 @@ public class UserInfoListService extends BaseApi{
     private String user_page_list;
 
     public UserInfoPEntity list() throws Exception {
-        Map<String,Object> params = new HashMap<String,Object>();
+        Map<String,Object> params = new HashMap<>();
         UserInfoPEntity userInfo = requestPostPage1(user_page_list,params,UserInfoPEntity.class);
         return userInfo;
     }
