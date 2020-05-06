@@ -6,6 +6,8 @@
 
 - 该demo为springboot项目，在resources/application.properties里面配置<font color=#FF0000 > `app.key` `app.secret` `app.code`</font> 三个参数，启动CorpDemoApplication 即可测试。
 
+- 查看验签流程：可以debug模式启动test下../yonbip/uspace/StaffTest.java的getStaffPageList()方法即可。
+
 - 在调试接口的过程中如果遇到问题，请先看一下常见问题，是否能给您解答。
 
 - 参考文档url： https://open.diwork.com/#/doc-center
