@@ -3,6 +3,7 @@ package com.yonyou.iuap.corp.demo.yonbip.uspace;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiApproveService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ApproveEntity;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ToDoContent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,26 +30,47 @@ public class ApproveTest {
 
 
     /**
-     * @description:   根据应用ID获取待办数量
+     * @description: 根据应用ID获取待办数量（新版）
      * @author: kw
-     * @date: 2020/4/10
+     * @date: 2020/4/13
+     * @param: []
+     * @return: void
+     */
+    @Test
+    public void getTaskCount() throws Exception {
+        ApproveEntity approveEntity = new ApproveEntity();
+        // toDoContent.setAppId("153797");
+        List yyUserIds = new ArrayList();
+        yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        // toDoContent.setYyUserIds(yyUserIds);
+        approveEntity.setYhtUserId("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        List appIds = new ArrayList();
+        appIds.add("0dd0b8bd-be92-4ec6-b6b4-9e96b5ea20f5");
+        approveEntity.setAppIds(appIds);
+        String result = apiApproveService.getTaskCount(approveEntity,accessTokenService.getAccessToken());
+        System.out.println(result);
+    }
+
+    /**
+     * @description: 根据应用ID获取待办数量（旧版）
+     * @author: kw
+     * @date: 2020/4/13
      * @param: []
      * @return: void
      */
     @Test
     public void taskCount() throws Exception {
+        //appids对应的是服务应用的applicationCode  也就是提供的参数 appcode
         ApproveEntity approveEntity = new ApproveEntity();
-        //租户id  查看方式 参考https://open.diwork.com/#/doc-center/docDes/doc?code=open_jrwd&section=46216495b9c54c5690a2df304211e3d2
-        approveEntity.setTenantId("zjhrilpq");
         //友互通用户id
         approveEntity.setYhtUserId("40b6b763-31af-46b3-b4b3-c62296914c6d");
-        //友空间id
+        //租户id
+        approveEntity.setTenantId("zjhrilpq");
         List appIds = new ArrayList();
-        appIds.add("0dd0b8bd-be92-4ec6-b6b4-9e96b5ea20f5");
-        appIds.add("209429");
+        //自建应用的appcode 可以在我的应用里看到 也能通过调用获取应用列表接口查询到
+        appIds.add("f4af1866-72bc-4efd-9aca-9fb2c06d600c");
         approveEntity.setAppIds(appIds);
-        System.out.println(accessTokenService.getAccessToken());
-        String result = apiApproveService.taskCount(approveEntity, accessTokenService.getAccessToken());
+        String result = apiApproveService.taskCount(approveEntity,accessTokenService.getAccessToken());
         System.out.println(result);
     }
 

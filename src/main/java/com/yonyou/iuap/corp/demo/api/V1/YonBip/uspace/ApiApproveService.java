@@ -1,6 +1,7 @@
 package com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace;
 
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ApproveEntity;
+import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ToDoContent;
 import com.yonyou.iuap.corp.demo.utils.HttpClientUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,9 @@ public class ApiApproveService {
     @Value("${api.uspace.approve.taskCount}")
     private String TASK_COUNT;
 
+    @Value("${api.uspace.approve.getTaskCount}")
+    private String GET_TAST_COUNT;
+
     @Value("${api.uspace.approve.approveTypes}")
     private String APPROVE_TYPES;
 
@@ -28,7 +32,7 @@ public class ApiApproveService {
     private String GET_APPROVE_TYPES;
 
     /**
-     * @description: 根据应用ID获取待办数量
+     * @description: 根据应用ID获取审批中心的待办数量
      * @author: kw
      * @date: 2020/4/10
      * @param: [approveEntity, accessToken]
@@ -40,6 +44,22 @@ public class ApiApproveService {
         logger.info("taskCount result:{}", result);
         return result;
     }
+
+    /**
+     * @description:  根据应用ID获取审批中心的待办数量（新版）
+     * @author: kw
+     * @date: 2020/4/13
+     * @param: [toDoContent, accessToken]
+     * @return: java.lang.String
+     */
+    public String getTaskCount(ApproveEntity approveEntity, String accessToken) throws Exception {
+        String requestUrl = GET_TAST_COUNT + "?access_token=" + accessToken;
+        String result = HttpClientUtil.jsonPost(requestUrl,approveEntity);
+        logger.info("getTaskCount result:{}", result);
+        return result;
+    }
+
+
 
     /**
      * @description:  根据友互通ID获取租户下审批页签列表
