@@ -30,7 +30,7 @@ public class UspaceServie  extends BaseApi {
     private String appcode;
 
     /**
-     * 目的时使用结果集中的ykjId
+     * 根据appcode获取服务列表 目的是获取结果集中的ykjId
      * @return
      * @throws Exception
      */

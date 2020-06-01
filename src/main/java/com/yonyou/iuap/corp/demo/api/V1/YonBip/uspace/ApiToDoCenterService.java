@@ -15,15 +15,14 @@ import org.springframework.stereotype.Service;
 public class ApiToDoCenterService {
     private static final Logger logger = LoggerFactory.getLogger(ApiToDoCenterService.class);
 
-    private final static String URL_TO_DO = "/open/diwork/todocenter/todo";
-
     private final static String URL_DONE = "/open/diwork/todocenter/done";
 
     private final static String URL_REVOCATION = "/open/diwork/todocenter/revocation";
 
     @Value("${api.todocenter.todo}")
     private String TODO;
-
+    @Value("${api.todocenter.revocation}")
+    private String REVOCATION;
     @Value("${api.uspace.approve.items}")
     private String ITEMS;
 
@@ -67,7 +66,7 @@ public class ApiToDoCenterService {
      * @throws Exception
      */
     public String revocation(ToDoContent toDoContent,String accessToken) throws Exception{
-        String requestUrl = apiHost + URL_REVOCATION + "?access_token=" + accessToken;
+        String requestUrl = REVOCATION + "?access_token=" + accessToken;
         String result = HttpClientUtil.jsonPost(requestUrl,toDoContent);
         logger.info("sendToDo result:{}", result);
         return result;

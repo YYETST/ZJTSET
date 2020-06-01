@@ -41,18 +41,18 @@ public class TodoContentTest {
     public void todo() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
         //ykjid  可以根据appcode获取服务列表获得
-        toDoContent.setAppId("245159");
+        toDoContent.setAppId("271295");
         //事件标题,不超过300字符
-        toDoContent.setTitle("测试待办2");
+        toDoContent.setTitle("贾婧雯测试待办");
         //类型名称, 即移动端页签名称,不超过5个字符
         toDoContent.setTypeName("测试类型");
         //待办事件唯一KEY, 用来标记为已处理或者删除使用，需要业务系统保证唯一性,不超过200字符
-        toDoContent.setBusinessKey("111111145");
+        toDoContent.setBusinessKey("123456789");
         //事件描述,不超过500字符
-        toDoContent.setContent("创建待办事件测试8");
+        toDoContent.setContent("贾婧雯创建待办事件测试");
         //友户通人员ID, 待办分配的人员，不能为空
         List yyUserIds = new ArrayList();
-        yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        yyUserIds.add("836efe76-7a08-464d-98c9-f5a5032e5ef0");
         toDoContent.setYyUserIds(yyUserIds);
         //租户ID, 会根据该参数查询出空间ID
         toDoContent.setTenantId("zjhrilpq");
@@ -72,12 +72,12 @@ public class TodoContentTest {
     @Test
     public void sendDone() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
-        toDoContent.setAppId("152676");
-        toDoContent.setBusinessKey("12345678901");
+        toDoContent.setAppId("271295");
+        toDoContent.setBusinessKey("123456789");
         List yyUserIds = new ArrayList();
-        yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        yyUserIds.add("836efe76-7a08-464d-98c9-f5a5032e5ef0");
         toDoContent.setYyUserIds(yyUserIds);
-        toDoContent.setTenantId("gbpwpfil");
+        toDoContent.setTenantId("zjhrilpq");
         String result = apiToDoCenterService.sendDone(toDoContent,accessTokenService.getAccessToken());
         System.out.println(result);
     }
@@ -92,12 +92,12 @@ public class TodoContentTest {
     @Test
     public void revocation() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
-        toDoContent.setAppId("209429");
-        toDoContent.setBusinessKey("1234567890");
+        toDoContent.setAppId("271295");
+        toDoContent.setBusinessKey("123456789");
         List yyUserIds = new ArrayList();
-        yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
+        yyUserIds.add("836efe76-7a08-464d-98c9-f5a5032e5ef0");
         toDoContent.setYyUserIds(yyUserIds);
-        toDoContent.setTenantId("gbpwpfil");
+        toDoContent.setTenantId("zjhrilpq");
         String result = apiToDoCenterService.revocation(toDoContent,accessTokenService.getAccessToken());
         System.out.println(result);
     }
@@ -115,7 +115,7 @@ public class TodoContentTest {
     public void items() throws Exception {
         ToDoContent toDoContent = new ToDoContent();
         //ykjid  可以根据appcode获取服务列表获得
-        toDoContent.setAppId("245159");
+        toDoContent.setAppId("271295");
         // toDoContent.setAppId("153797");
 //        List yyUserIds = new ArrayList();
 //        yyUserIds.add("40b6b763-31af-46b3-b4b3-c62296914c6d");

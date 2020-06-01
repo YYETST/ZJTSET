@@ -26,7 +26,7 @@ public class UspaceListTest {
     UspaceServie uspaceServie;
 
     /**
-     * 获取应用服务列表
+     * 根据appcode获取应用服务列表
      */
     @Test
     public void getUspaceListList() throws Exception {
