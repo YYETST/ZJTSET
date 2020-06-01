@@ -35,5 +35,16 @@ public class UserInfoTest{
         List<UserInfoEntity> result = userInfo.detail(params);
         System.out.println(result.toString());
     }
+
+    @Test
+    public void list() throws Exception {
+        Map<String, Object> params  = new HashMap<String, Object>();
+        params.put("enable","1");
+        params.put("pageIndex","1");
+        params.put("pageSize","10");
+        List<UserInfoEntity> result = userInfo.list(params);
+        System.out.println(result.toString());
+    }
+
 }
 

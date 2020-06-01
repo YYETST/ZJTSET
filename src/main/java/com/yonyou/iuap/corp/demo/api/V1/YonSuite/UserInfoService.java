@@ -21,6 +21,9 @@ public class UserInfoService extends BaseApi {
     @Value("${api.user.info}")
     private String detail_uri;
 
+    @Value("${api.staff.list}")
+    private String LIST_URL;
+
     /**
      * 根据手机号获取员工信息
      * @param params
@@ -30,6 +33,10 @@ public class UserInfoService extends BaseApi {
         params.put("type","1");
         List<UserInfoEntity> result = doGet(detail_uri,params,new TypeReference<List<UserInfoEntity>>(){});
         return result;
+    }
+
+    public List<UserInfoEntity> list(Map<String, Object> params) throws Exception {
+        return doPost(LIST_URL, params, new TypeReference<List<UserInfoEntity>>(){});
     }
 
 }

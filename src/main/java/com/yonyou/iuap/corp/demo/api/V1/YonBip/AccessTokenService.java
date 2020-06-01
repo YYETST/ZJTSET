@@ -43,11 +43,12 @@ public class AccessTokenService {
         Map<String, Object> params = new HashMap<>();
         // 除签名外的其他参数
         params.put("appKey", appKey);
-        params.put("timestamp", String.valueOf(System.currentTimeMillis()));;
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        params.put("timestamp", timestamp);;
         // 计算签名
         String signature = SignHelper.sign(params, appSecret);
         params.put("signature", signature);
-
+        logger.info("appKey="+appKey+"&timestamp="+timestamp+"&signature="+signature);
         String result =  HttpClientUtil.get(openAuthHost + URL_TOKEN, params);
         // JSONObject
         JSONObject responseData = JSON.parseObject(result);

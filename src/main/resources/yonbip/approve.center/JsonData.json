@@ -190,58 +190,102 @@
     "flag": "0"
   },
   "pageMeta": {
-    "flag": "0",
-    "desc": "获取界面定义元数据:OK",
-    "data": {
-      "tab": [{
-        "urlType": "inner",
-        "showName": "详情",
-        "tabCode": "pageDetail"
-      }, {
-        "urlType": "inner",
-        "showName": "流程历史",
-        "tabCode": "flowHis"
-      }, {
-        "urlType": "inner",
-        "showName": "附件",
-        "tabCode": "annexList"
-      }],
-      "services": [{
-        "code": "pageDetail",
-        "resp": [
-          "pageDetail",
-          "pageUrls",
-          "annexNum",
-          "annexList",
-          "actionList",
-          "approveHint",
-          "pageContent",
-          "flowHisIcon",
-          "pageMain"
-        ],
-        "delay": false
-      }, {
-        "code": "flowHis",
-        "resp": ["flowHis"],
-        "delay": false
-      }]
+    "flag":"0",
+    "desc":"获取界面定义元数据:OK",
+    "data":{
+      "tab":[
+        {
+          "urlType":"inner",
+          "showName":"详情",
+          "tabCode":"pageDetail"
+        },
+        {
+          "urlType":"inner",
+          "showName":"流程历史",
+          "tabCode":"flowHis"
+        },
+        {
+          "urlType":"inner",
+          "showName":"附件",
+          "tabCode":"annexList"
+        }
+      ],
+      "services":[
+        {
+          "code":"pageDetail",
+          "resp":[
+            "pageDetail"
+          ],
+          "delay":false
+        },
+        {
+          "code":"flowHis",
+          "resp":[
+            "flowHis"
+          ],
+          "delay":false
+        },
+        {
+          "code":"annexList",
+          "resp":[
+            "annexList"
+          ],
+          "delay":false
+        },
+        {
+          "code":"pageTitle",
+          "resp":[
+            "pageTitle"
+          ],
+          "delay":false
+        },
+        {
+          "code":"pageStatus",
+          "resp":[
+            "pageStatus"
+          ],
+          "delay":false
+        },
+        {
+          "code":"annexNum",
+          "resp":[
+            "annexNum"
+          ],
+          "delay":false
+        },
+        {
+          "code":"actionList",
+          "resp":[
+            "actionList"
+          ],
+          "delay":false
+        },
+        {
+          "code":"actionDetail",
+          "resp":[
+            "actionDetail"
+          ],
+          "delay":false
+        }
+      ]
     }
   },
   "pageTitle": {
     "flag":"0",
-    "desc":"获取标题:OK",
+    "desc":"获取标题：OK",
+    "code":"0",
     "data":{
       "pageTitle":{
-        "data":"张一提交的报销单XXXXX",
+        "data":"康旺的上线申请",
         "flag":"0",
         "desc":"sueecss",
-        "showError":false
+        "showError":true
       }
     }
   },
   "pageStatus": {
     "flag":"0",
-    "desc":"单据状态:OK",
+    "desc":"OK",
     "data":{
       "pageStatus":{
         "data":{
@@ -249,8 +293,8 @@
           "status":"going"
         },
         "flag":"0",
-        "desc":"sueecss",
-        "showError":false
+        "desc":"OK",
+        "showError":true
       }
     }
   },
@@ -289,62 +333,76 @@
         "data":{
           "h":[
             {
-              "tabName":"单据编号",
+              "tabName":"上线申请",
               "tabContent":{
                 "itemData":[
                   {
-                    "itemName":"单据日期",
-                    "itemValue":"2019-08-06"
+                    "itemValue":"上线申请",
+                    "itemName":"单据类型"
                   },
                   {
-                    "itemName":"报销原币金额",
-                    "itemValue":"666"
+                    "itemValue":"0204",
+                    "itemName":"自动编号"
                   },
                   {
-                    "itemName":"币种",
-                    "itemValue":"人民币"
+                    "itemValue":"康旺",
+                    "itemName":"用户"
                   },
                   {
-                    "itemName":"事由",
-                    "itemValue":""
+                    "itemValue":"云平台技术中台产品部",
+                    "itemName":"申请人部门"
                   },
                   {
-                    "itemName":"报销人",
-                    "itemValue":"张一"
-                  }]
+                    "itemValue":"用友网络科技股份有限公司",
+                    "itemName":"申请人所在组织"
+                  }
+                ]
               }
-            }],
+            }
+          ],
           "b":[
             {
-              "tabName":"",
-              "tabNum":"1",
+              "tabName":"故事清单",
+              "tabNum":3,
               "tabContent":[
                 {
                   "itemData":[
                     {
-                      "itemName":"报销类型",
-                      "itemValue":"",
+                      "itemName":"故事1",
+                      "itemValue":"在镜像仓库中，增加用户镜像的隔离功能",
                       "igest":false
-                    },
+                    }
+                  ]
+                },
+                {
+                  "itemData":[
                     {
-                      "itemName":"收支项目",
-                      "itemValue":"",
-                      "igest":true
-                    },
+                      "itemName":"故事2",
+                      "itemValue":"在灰度发布功能中，增加全局公共规则配置",
+                      "igest":false
+                    }
+                  ]
+                },
+                {
+                  "itemData":[
                     {
-                      "itemName":"金额",
-                      "itemValue":"666",
-                      "igest":true
-                    }]
-                }]
-            }],
-          "billtypename":"员工补助报销单"
+                      "itemName":"故事3",
+                      "itemValue":"流水线接入JIRA系统，流水线各环境代码发布后更改对应JIRA状态",
+                      "igest":false
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "billtypename":"审批详情"
         },
         "flag":"0",
-        "desc":"sueecss",
-        "showError":false
+        "desc":"OK",
+        "showError":true
       }
-    }
+    },
+    "sysType":"GENERAL"
   },
   "pageContent": {
     "flag":"0",
@@ -362,33 +420,44 @@
   },
   "flowHis": {
     "flag":"0",
-    "desc":"流程历史:OK",
+    "desc":"OK",
     "data":{
       "flowHis":{
         "data":[
           {
-            "note":"",
-            "dealTime":"2018-07-10 15:32:01",
+            "note":"应用1上线申请",
+            "dealTime":"2020-3-12",
             "action":"提交",
-            "userName":"用户01",
+            "userName":"康旺",
             "type":"commit",
-            "userId":"100xxxxxxMS9L",
-            "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
-            "status":"31"
-          },
-          {
-            "note":"批准(来自移动端)",
-            "dealTime":"2018-08-07 21:18:45",
-            "action":"批准",
-            "userName":"用户01",
-            "type":"going",
-            "userId":"100xxxxxx3MS9L",
+            "userId":"XXXXXXXXXX",
             "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
             "status":"1"
-          }],
+          },
+          {
+            "note":"没问题",
+            "dealTime":"2020-3-13",
+            "action":"同意",
+            "userName":"王伟",
+            "type":"going",
+            "userId":"XXXXXXXXXX",
+            "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
+            "status":"1"
+          },
+          {
+            "note":"可以上线",
+            "dealTime":"2020-3-14",
+            "action":"同意",
+            "userName":"李先",
+            "type":"going",
+            "userId":"XXXXXXXXXX",
+            "taskId":"68fd48b4-ead6-11e7-9523-0242ac1e1105",
+            "status":"1"
+          }
+        ],
         "flag":"0",
-        "desc":"sueecss",
-        "showError":false
+        "desc":"OK",
+        "showError":true
       }
     }
   },
@@ -409,49 +478,38 @@
   },
   "annexNum": {
     "flag":"0",
-    "desc":"附件数量:OK",
+    "desc":"OK",
     "data":{
       "annexNum":{
         "data":{
-          "number":3
+          "number":1
         },
         "flag":"0",
-        "desc":"sueecss",
-        "showError":false,
-        "resource":null,
-        "exception":null
+        "desc":"OK",
+        "showError":true
       }
     }
   },
   "annexList": {
     "flag":"0",
-    "desc":"附件列表:OK",
+    "desc":"OK",
     "data":{
       "annexList":{
         "data":[
           {
             "filetype":"xls",
-            "filename":"Context查询手册.xls",
-            "previewUrl":"https://www.json.cn/",
+            "filename":"故事清单.xls",
+            "previewUrl":"https//developer.yonyoucloud.com",
             "downflag":"1",
-            "downloadUrl":"https://www.json.cn/",
-            "filesize":"35KB",
-            "dnType":"2",
-            "fileid":"c2157909-ad66-4ca2-b5f8-8ced719c50c7"
-          },
-          {
-            "filetype":"txt",
-            "filename":"新建文本文档.txt",
-            "previewUrl":"https://www.json.cn/",
-            "downflag":"1",
-            "downloadUrl":"https://www.json.cn/",
-            "filesize":"10KB",
+            "downloadUrl":"https//developer.yonyoucloud.com",
+            "filesize":"30KB",
             "dnType":"2",
             "fileid":"38e6b5a2-4c13-4cda-85fa-c38aa7384fc3"
-          }],
+          }
+        ],
         "flag":"0",
-        "desc":"sueecss",
-        "showError":false
+        "desc":"OK",
+        "showError":true
       }
     }
   },
