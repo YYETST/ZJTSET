@@ -2,7 +2,7 @@ package com.yonyou.iuap.corp.demo.web;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.UserIdsParam;
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiFreeLoginService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import java.util.List;
 public class FreeLoginDemoController {
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     @Autowired
     private ApiFreeLoginService apiFreeLoginService;
@@ -47,7 +47,7 @@ public class FreeLoginDemoController {
                                    @RequestParam(required = false, defaultValue = "false") String userMobileEmailFlag,
                                    Model model) throws Exception {
 
-        JSONObject result = JSONObject.parseObject(apiFreeLoginService.getFreeLoginInfo(code, userMobileEmailFlag, accessTokenService.getAccessToken()));
+        JSONObject result = JSONObject.parseObject(apiFreeLoginService.getFreeLoginInfo(code, userMobileEmailFlag, apiAccessTokenService.getAccessToken()));
 
         if (result.getInteger("code") == 0) {
             JSONObject data = result.getJSONObject("data");
@@ -81,7 +81,7 @@ public class FreeLoginDemoController {
                             @RequestParam(required = false, defaultValue = "false") String userMobileEmailFlag,
                             Model model) throws Exception {
 
-        JSONObject result = JSONObject.parseObject(apiFreeLoginService.getFreeLoginInfo(code, "true", accessTokenService.getAccessToken()));
+        JSONObject result = JSONObject.parseObject(apiFreeLoginService.getFreeLoginInfo(code, "true", apiAccessTokenService.getAccessToken()));
 
         if (result.getInteger("code") == 0) {
             JSONObject data = result.getJSONObject("data");
@@ -101,7 +101,7 @@ public class FreeLoginDemoController {
             userIds.add(data.getString("yhtUserId"));
             userIdsParam.setUserIds(userIds);
 
-            JSONObject userInfos = JSONObject.parseObject(userService.listByIds(userIdsParam, accessTokenService.getAccessToken()));
+            JSONObject userInfos = JSONObject.parseObject(userService.listByIds(userIdsParam, apiAccessTokenService.getAccessToken()));
             JSONObject userInfo = userInfos.getJSONArray("data").getJSONObject(0);
             model.addAttribute("photo", "https://cdn.yonyoucloud.com/" + userInfo.getString("userAvatorNew"));
             model.addAttribute("userCode", userInfo.getString("userCode"));

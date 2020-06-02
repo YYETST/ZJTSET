@@ -1,9 +1,8 @@
 package com.yonyou.iuap.corp.demo.yonbip.uspace;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiApproveService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ApproveEntity;
-import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ToDoContent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class ApproveTest {
     @Autowired
     private ApiApproveService apiApproveService;
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
 
     /**
@@ -47,7 +46,7 @@ public class ApproveTest {
         List appIds = new ArrayList();
         appIds.add("0dd0b8bd-be92-4ec6-b6b4-9e96b5ea20f5");
         approveEntity.setAppIds(appIds);
-        String result = apiApproveService.getTaskCount(approveEntity,accessTokenService.getAccessToken());
+        String result = apiApproveService.getTaskCount(approveEntity, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -70,7 +69,7 @@ public class ApproveTest {
         //自建应用的appcode 可以在我的应用里看到 也能通过调用获取应用列表接口查询到
         appIds.add("f4af1866-72bc-4efd-9aca-9fb2c06d600c");
         approveEntity.setAppIds(appIds);
-        String result = apiApproveService.taskCount(approveEntity,accessTokenService.getAccessToken());
+        String result = apiApproveService.taskCount(approveEntity, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -87,7 +86,7 @@ public class ApproveTest {
         //友互通用户id
         approveEntity.setYhtUserId("40b6b763-31af-46b3-b4b3-c62296914c6d");
         approveEntity.setSiteType("m");
-        String result = apiApproveService.getApproveTypes(approveEntity, accessTokenService.getAccessToken());
+        String result = apiApproveService.getApproveTypes(approveEntity, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 }

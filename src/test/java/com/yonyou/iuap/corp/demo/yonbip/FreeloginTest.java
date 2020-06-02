@@ -1,8 +1,7 @@
 package com.yonyou.iuap.corp.demo.yonbip;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.FreeloginService;
-import com.yonyou.iuap.corp.demo.entity.yonbip.OtherLoginEntity;
-import com.yonyou.iuap.corp.demo.entity.yonbip.UserInfoPEntity;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiFreeLoginService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +19,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class FreeloginTest {
 
     @Autowired
-    FreeloginService freeloginService;
-
+    ApiFreeLoginService ApiFreeLoginService;
+    @Autowired
+    private ApiAccessTokenService apiAccessTokenService;
     /**
      * 免登接口
      * @throws Exception
      */
     @Test
     public void freeLogin() throws Exception {
-        OtherLoginEntity result = freeloginService.otherLoginTest("b11d777f0f5930e590b21112c8ca5eb77a8ef58b88d5ca036b2b40d9608c&qzId=152676");
-        System.out.println(result.toString());
+       String result = ApiFreeLoginService.otherLoginTest("e508c80eee99b076bf5058f9a6f79ab2728a576e946747784ccb50680393&qzId=152676", apiAccessTokenService.getAccessToken());
+        System.out.println(result);
     }
 }

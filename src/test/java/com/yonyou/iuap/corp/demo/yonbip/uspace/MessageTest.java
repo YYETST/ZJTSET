@@ -1,6 +1,6 @@
 package com.yonyou.iuap.corp.demo.yonbip.uspace;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiMessageService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ArticlesEntity;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.MessageEntity;
@@ -24,7 +24,7 @@ import java.util.List;
 public class MessageTest {
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     @Autowired
     private ApiMessageService apiMessageService;
@@ -39,7 +39,7 @@ public class MessageTest {
     @Test
     public void groups() throws Exception {
         String pubaccId = "msgaccount_152676_kw001";
-        String result = apiMessageService.groups(pubaccId,accessTokenService.getAccessToken());
+        String result = apiMessageService.groups(pubaccId, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -67,7 +67,7 @@ public class MessageTest {
         messageEntity.setSendScope("group");
         messageEntity.setTo(to1);
         messageEntity.setContent("服务号发送文本消息测试-群组");
-        String result = apiMessageService.service_txt(messageEntity,accessTokenService.getAccessToken());
+        String result = apiMessageService.service_txt(messageEntity, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -111,7 +111,7 @@ public class MessageTest {
         List<ArticlesEntity> articles = new ArrayList<>();
         articles.add(articlesEntity);
         messageEntity.setArticles(articles);
-        String result = apiMessageService.service_mixed(messageEntity,accessTokenService.getAccessToken());
+        String result = apiMessageService.service_mixed(messageEntity, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 }

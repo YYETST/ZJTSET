@@ -15,16 +15,21 @@ import org.springframework.stereotype.Service;
 public class ApiToDoCenterService {
     private static final Logger logger = LoggerFactory.getLogger(ApiToDoCenterService.class);
 
-    private final static String URL_DONE = "/open/diwork/todocenter/done";
-
-    private final static String URL_REVOCATION = "/open/diwork/todocenter/revocation";
 
     @Value("${api.todocenter.todo}")
     private String TODO;
+
     @Value("${api.todocenter.revocation}")
     private String REVOCATION;
+
     @Value("${api.uspace.approve.items}")
     private String ITEMS;
+
+    @Value("${api.todocenter.sendDone}")
+    private String DONE;
+
+    @Value("${api.todocenter.read}")
+    private String READ;
 
     @Value("${api.host}")
     private String apiHost;
@@ -43,7 +48,6 @@ public class ApiToDoCenterService {
         logger.info("sendToDo result:{}", result);
         return result;
     }
-
     /**
      * 标记待办事件为已处理
      * @param toDoContent
@@ -52,7 +56,21 @@ public class ApiToDoCenterService {
      * @throws Exception
      */
     public String sendDone(ToDoContent toDoContent,String accessToken) throws Exception{
-        String requestUrl = apiHost + URL_DONE + "?access_token=" + accessToken;
+        String requestUrl = DONE + "?access_token=" + accessToken;
+        String result = HttpClientUtil.jsonPost(requestUrl,toDoContent);
+        logger.info("sendToDo result:{}", result);
+        return result;
+    }
+    /**
+     * 标记待办事件为已读
+     * @param toDoContent
+     * @param accessToken
+     * @return
+     * @throws Exception
+     */
+    public String read(ToDoContent toDoContent,String accessToken) throws Exception{
+
+        String requestUrl = READ + "?access_token=" + accessToken;
         String result = HttpClientUtil.jsonPost(requestUrl,toDoContent);
         logger.info("sendToDo result:{}", result);
         return result;

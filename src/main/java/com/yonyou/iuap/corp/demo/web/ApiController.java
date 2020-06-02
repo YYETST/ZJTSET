@@ -1,6 +1,6 @@
 package com.yonyou.iuap.corp.demo.web;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.*;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.Map;
 public class ApiController {
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     @Autowired
     private ApiFreeLoginService apiFreeLoginService;
@@ -58,7 +58,7 @@ public class ApiController {
      */
     @GetMapping("get_access_token")
     public Object getAccessToken() throws Exception {
-        return accessTokenService.getAccessToken();
+        return apiAccessTokenService.getAccessToken();
     }
 
     /**
@@ -69,7 +69,7 @@ public class ApiController {
      */
     @GetMapping("get_jsticket")
     public Object getJsticket() throws Exception {
-        return apiJsApiService.getJsTicket(accessTokenService.getAccessToken());
+        return apiJsApiService.getJsTicket(apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -80,7 +80,7 @@ public class ApiController {
      */
     @GetMapping("get_agentInfo")
     public Map<String, Object> getAgentInfo() throws Exception {
-        return apiJsApiService.getAgentInfo(accessTokenService.getAccessToken());
+        return apiJsApiService.getAgentInfo(apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -93,7 +93,7 @@ public class ApiController {
      */
     @GetMapping("get_free_login_info")
     public Object getFreeLoginInfo(@RequestParam String code, @RequestParam(required = false, defaultValue = "false") String userMobileEmailFlag) throws Exception {
-        return apiFreeLoginService.getFreeLoginInfo(code, userMobileEmailFlag, accessTokenService.getAccessToken());
+        return apiFreeLoginService.getFreeLoginInfo(code, userMobileEmailFlag, apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -105,7 +105,7 @@ public class ApiController {
      */
     @PostMapping("get_user_page_list")
     public Object getUserPageList(@RequestBody UserPageParam pageParam) throws Exception {
-        return apiUserService.getUserPageList(pageParam, accessTokenService.getAccessToken());
+        return apiUserService.getUserPageList(pageParam, apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -117,7 +117,7 @@ public class ApiController {
      */
     @PostMapping("get_user_list_by_ids")
     public Object getUserListByIds(@RequestBody UserIdsParam userIdsParam) throws Exception {
-        return apiUserService.listByIds(userIdsParam, accessTokenService.getAccessToken());
+        return apiUserService.listByIds(userIdsParam, apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -129,7 +129,7 @@ public class ApiController {
      */
     @PostMapping("search_user")
     public Object searchUser(@RequestBody UserPageParam pageParam) throws Exception {
-        return apiUserService.searchUser(pageParam, accessTokenService.getAccessToken());
+        return apiUserService.searchUser(pageParam, apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -141,7 +141,7 @@ public class ApiController {
      */
     @PostMapping("get_staff_page_list")
     public Object getStaffPageList(@RequestBody StaffPageParam staffPageParam) throws Exception {
-        return apiStaffService.getStaffPageList(staffPageParam, accessTokenService.getAccessToken());
+        return apiStaffService.getStaffPageList(staffPageParam, apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -154,7 +154,7 @@ public class ApiController {
      */
     @GetMapping("search_staff_by_mobile_email")
     public Object searchStaffByMobileOrEmail(@RequestParam String type, @RequestParam String field) throws Exception {
-        return apiStaffService.searchStaffByMobileOrEmail(type, field, accessTokenService.getAccessToken());
+        return apiStaffService.searchStaffByMobileOrEmail(type, field, apiAccessTokenService.getAccessToken());
     }
 
 
@@ -167,7 +167,7 @@ public class ApiController {
      */
     @PostMapping("send_notify_share")
     public Object sendNotifyShare(@RequestBody NotifyShareContent notifyShareContent) throws Exception {
-        return apiMessageService.sendNotifyShare(notifyShareContent, accessTokenService.getAccessToken());
+        return apiMessageService.sendNotifyShare(notifyShareContent, apiAccessTokenService.getAccessToken());
     }
 
 
@@ -180,7 +180,7 @@ public class ApiController {
      */
     @PostMapping("send_todo")
     public Object sendToDo(@RequestBody ToDoContent toDoContent) throws Exception {
-        return apiToDoCenterService.sendToDo(toDoContent, accessTokenService.getAccessToken());
+        return apiToDoCenterService.sendToDo(toDoContent, apiAccessTokenService.getAccessToken());
     }
 
     /**
@@ -192,9 +192,8 @@ public class ApiController {
      */
     @PostMapping("send_done")
     public Object sendDone(@RequestBody ToDoContent toDoContent) throws Exception {
-        return apiToDoCenterService.sendDone(toDoContent, accessTokenService.getAccessToken());
+        return apiToDoCenterService.sendDone(toDoContent, apiAccessTokenService.getAccessToken());
     }
-
     /**
      * 删除待办事件
      *
@@ -204,7 +203,7 @@ public class ApiController {
      */
     @PostMapping("revocation")
     public Object revocation(@RequestBody ToDoContent toDoContent) throws Exception {
-        return apiToDoCenterService.revocation(toDoContent, accessTokenService.getAccessToken());
+        return apiToDoCenterService.revocation(toDoContent, apiAccessTokenService.getAccessToken());
     }
 
 }

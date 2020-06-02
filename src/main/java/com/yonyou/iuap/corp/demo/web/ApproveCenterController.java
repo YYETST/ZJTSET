@@ -1,7 +1,7 @@
 package com.yonyou.iuap.corp.demo.web;
 
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.approve.center.ApproveCenterService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.approve.center.ApproveCenterEntity;
 import com.yonyou.iuap.corp.demo.utils.JsonUtil;
@@ -26,7 +26,7 @@ public class ApproveCenterController {
     private ApproveCenterService approveCenterService;
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     @RequestMapping("approveCenter")
     public JSONObject handleApproveCenter(@RequestParam(required=false) String code,
@@ -35,7 +35,7 @@ public class ApproveCenterController {
                                           @RequestParam(required=false) String app_id,
                                           @RequestBody String requstBody) throws Exception {
         JSONObject json = JsonUtil.strToJson(requstBody);
-        return approveCenterService.handleAction(accessTokenService.getAccessToken(),json);
+        return approveCenterService.handleAction(apiAccessTokenService.getAccessToken(),json);
     }
 
     @RequestMapping("approveCenter2")
@@ -44,6 +44,6 @@ public class ApproveCenterController {
                                           @RequestParam(required=false) String fromSys,
                                           @RequestParam(required=false) String app_id,
                                           @RequestBody ApproveCenterEntity approveCenterEntity) throws Exception {
-        return approveCenterService.handleAction2(accessTokenService.getAccessToken(),approveCenterEntity);
+        return approveCenterService.handleAction2(apiAccessTokenService.getAccessToken(),approveCenterEntity);
     }
 }

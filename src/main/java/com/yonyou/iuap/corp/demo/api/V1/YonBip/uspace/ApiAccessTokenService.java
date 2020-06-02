@@ -1,4 +1,4 @@
-package com.yonyou.iuap.corp.demo.api.V1.YonBip;
+package com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -19,9 +19,9 @@ import java.util.Map;
  * @create 2019-04-09 上午11:52
  */
 @Service
-public class AccessTokenService {
+public class ApiAccessTokenService {
 
-    private static final Logger logger = LoggerFactory.getLogger(AccessTokenService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiAccessTokenService.class);
 
     private final static String URL_TOKEN = "/open-auth/selfAppAuth/getAccessToken";
 

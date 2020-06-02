@@ -1,7 +1,7 @@
 package com.yonyou.iuap.corp.demo.api.V1.YonBip.basicFiles.organization;
 
 import com.yonyou.iuap.corp.demo.entity.yonbip.basicFiles.org.OrgStaffEntity;
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.utils.HttpClientUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrgStaffService {
 
-    private static final Logger logger = LoggerFactory.getLogger(AccessTokenService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiAccessTokenService.class);
 
     @Value("${api.common.listParentAndSubByOrgIds}")
     private String ORG_STAFF_URL;

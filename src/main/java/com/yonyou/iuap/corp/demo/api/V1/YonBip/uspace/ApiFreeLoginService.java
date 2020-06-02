@@ -25,7 +25,8 @@ public class ApiFreeLoginService {
 
     @Value("${api.host}")
     private String apiHost;
-
+    @Value("${api.freelogin.other}")
+    private String other_uri;
     /**
      * 获取免登信息
      * @param code
@@ -45,5 +46,15 @@ public class ApiFreeLoginService {
         String result = HttpClientUtil.get(apiHost + URL_FREE_LOGIN, params);
         logger.info("getFreeLoginInfo:{}", result);
         return result;
+    }
+    public String otherLoginTest(String code,String accessToken) throws Exception {
+        Map<String,Object> params = new HashMap<String,Object>();
+        params.put("code",code);
+        params.put("access_token",accessToken);
+        //是否用户返回手机号等信息
+        params.put("flag",true);
+        String result= HttpClientUtil.get(other_uri,params);
+        return result;
+
     }
 }

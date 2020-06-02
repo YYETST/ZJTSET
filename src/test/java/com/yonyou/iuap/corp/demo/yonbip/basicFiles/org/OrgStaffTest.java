@@ -2,7 +2,7 @@ package com.yonyou.iuap.corp.demo.yonbip.basicFiles.org;
 
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.basicFiles.organization.OrgStaffService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.basicFiles.org.OrgStaffEntity;
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class OrgStaffTest {
     private OrgStaffService orgStaffService;
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     /**
      * @description:组织员工专项接口
@@ -43,7 +43,7 @@ public class OrgStaffTest {
         List orgids = new ArrayList();
         orgids.add("3d87c37406c0474498ec4c24c5a62132");
         orgStaffEntity.setOrgIds(orgids);
-        String result = orgStaffService.listParentAndSubByOrgIds(accessTokenService.getAccessToken(),orgStaffEntity);
+        String result = orgStaffService.listParentAndSubByOrgIds(apiAccessTokenService.getAccessToken(),orgStaffEntity);
         System.out.println(result);
     }
 }

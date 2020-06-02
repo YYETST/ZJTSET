@@ -1,15 +1,12 @@
 package com.yonyou.iuap.corp.demo.yonbip;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.UserInfoListService;
-import com.yonyou.iuap.corp.demo.entity.yonbip.UserInfoPEntity;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiUserInfoListService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author nishch
@@ -22,15 +19,16 @@ import java.util.Map;
 public class UserInfoListTest {
 
     @Autowired
-    UserInfoListService userInfoListService;
-
+    ApiUserInfoListService apiUserInfoListService;
+    @Autowired
+    private ApiAccessTokenService apiAccessTokenService;
     /**
      * 获取用户信息列表
      */
     @Test
     public void getUserInfoList() throws Exception {
-        UserInfoPEntity result = userInfoListService.list();
-        System.out.println(result.toString());
+        String result = apiUserInfoListService.list(apiAccessTokenService.getAccessToken());
+        System.out.println(result);
     }
 
 }

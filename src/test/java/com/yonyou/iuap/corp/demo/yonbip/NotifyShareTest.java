@@ -1,6 +1,7 @@
 package com.yonyou.iuap.corp.demo.yonbip;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.NotifyShareService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiNotifyShareService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.notify.NotifyShareEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +23,9 @@ import java.util.List;
 public class NotifyShareTest {
 
     @Autowired
-    NotifyShareService notifyShareService;
-
+    ApiNotifyShareService apiNotifyShareService;
+    @Autowired
+    private ApiAccessTokenService apiAccessTokenService;
     /**
      * 发送通知
      */
@@ -38,7 +40,7 @@ public class NotifyShareTest {
         userlist.add("0f059088-9c92-4769-a3e7-8f1a341cc3df");
         userlist.add("40b6b763-31af-46b3-b4b3-c62296914c6d");
         notifyEntity.setYhtUserIds(userlist);
-        String result = notifyShareService.share(notifyEntity);
+        String result = apiNotifyShareService.share(notifyEntity, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 }

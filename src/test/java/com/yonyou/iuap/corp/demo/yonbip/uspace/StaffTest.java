@@ -1,6 +1,6 @@
 package com.yonyou.iuap.corp.demo.yonbip.uspace;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiStaffService;
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.StaffPageParam;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class StaffTest {
     @Autowired
     private ApiStaffService apiStaffService;
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     /**
      * @description:  根据手机号或者邮箱查询员工
@@ -36,7 +36,7 @@ public class StaffTest {
     public void info_by_mobile_email() throws Exception {
         String type = "1";
         String field = "17352777151";// "17352777151";
-        String result = apiStaffService.searchStaffByMobileOrEmail(type, field, accessTokenService.getAccessToken());
+        String result = apiStaffService.searchStaffByMobileOrEmail(type, field, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -52,14 +52,14 @@ public class StaffTest {
         StaffPageParam staffPageParam = new StaffPageParam();
         staffPageParam.setIndex(1);
         staffPageParam.setSize(10);
-        String result = apiStaffService.getStaffPageList(staffPageParam, accessTokenService.getAccessToken());
+        String result = apiStaffService.getStaffPageList(staffPageParam, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
     @Test
     public void info_by_id() throws Exception {
         String id = "";
-        String result = apiStaffService.info_by_id(id, accessTokenService.getAccessToken());
+        String result = apiStaffService.info_by_id(id, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 }

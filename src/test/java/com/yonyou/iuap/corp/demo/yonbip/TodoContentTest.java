@@ -1,7 +1,7 @@
 package com.yonyou.iuap.corp.demo.yonbip;
 
 import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.ToDoContent;
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiToDoCenterService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,9 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @program: corp-demo
@@ -28,7 +26,7 @@ public class TodoContentTest {
     private ApiToDoCenterService apiToDoCenterService;
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     /*
      * @description: 待办
@@ -58,7 +56,7 @@ public class TodoContentTest {
         toDoContent.setTenantId("zjhrilpq");
         toDoContent.setmUrl("https://www.baidu.com/");
         toDoContent.setWebUrl("https://www.json.cn/?code=${esncode}");
-        String result = apiToDoCenterService.sendToDo(toDoContent,accessTokenService.getAccessToken());
+        String result = apiToDoCenterService.sendToDo(toDoContent, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -78,7 +76,25 @@ public class TodoContentTest {
         yyUserIds.add("836efe76-7a08-464d-98c9-f5a5032e5ef0");
         toDoContent.setYyUserIds(yyUserIds);
         toDoContent.setTenantId("zjhrilpq");
-        String result = apiToDoCenterService.sendDone(toDoContent,accessTokenService.getAccessToken());
+        String result = apiToDoCenterService.sendDone(toDoContent, apiAccessTokenService.getAccessToken());
+        System.out.println(result);
+    }
+
+    /**
+     * 标记待办事件为已读
+     * @throws Exception
+     */
+    @Test
+    public void read() throws Exception {
+        ToDoContent toDoContent = new ToDoContent();
+        toDoContent.setAppId("271295");
+        toDoContent.setBusinessKey("123456789");
+        List yyUserIds = new ArrayList();
+        yyUserIds.add("836efe76-7a08-464d-98c9-f5a5032e5ef0");
+        toDoContent.setYyUserIds(yyUserIds);
+        toDoContent.setYhtUserId("836efe76-7a08-464d-98c9-f5a5032e5ef0");
+        toDoContent.setTenantId("zjhrilpq");
+        String result = apiToDoCenterService.read(toDoContent, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -97,8 +113,9 @@ public class TodoContentTest {
         List yyUserIds = new ArrayList();
         yyUserIds.add("836efe76-7a08-464d-98c9-f5a5032e5ef0");
         toDoContent.setYyUserIds(yyUserIds);
+
         toDoContent.setTenantId("zjhrilpq");
-        String result = apiToDoCenterService.revocation(toDoContent,accessTokenService.getAccessToken());
+        String result = apiToDoCenterService.revocation(toDoContent, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 
@@ -124,7 +141,7 @@ public class TodoContentTest {
 //        List appIds = new ArrayList();
 //        appIds.add("0dd0b8bd-be92-4ec6-b6b4-9e96b5ea20f5");
 //        toDoContent.setAppIds(appIds);
-        String result = apiToDoCenterService.items(toDoContent,accessTokenService.getAccessToken());
+        String result = apiToDoCenterService.items(toDoContent, apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 }

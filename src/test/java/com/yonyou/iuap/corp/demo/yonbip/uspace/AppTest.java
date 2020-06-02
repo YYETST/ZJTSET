@@ -1,12 +1,10 @@
 package com.yonyou.iuap.corp.demo.yonbip.uspace;
 
-import com.yonyou.iuap.corp.demo.api.V1.YonBip.AccessTokenService;
+import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAccessTokenService;
 import com.yonyou.iuap.corp.demo.api.V1.YonBip.uspace.ApiAppService;
-import com.yonyou.iuap.corp.demo.entity.yonbip.uspace.StaffPageParam;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -22,7 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class AppTest {
 
     @Autowired
-    private AccessTokenService accessTokenService;
+    private ApiAccessTokenService apiAccessTokenService;
 
     @Autowired
     private ApiAppService apiAppService;
@@ -40,7 +38,7 @@ public class AppTest {
         //默认为获取当前appcode下应用信息
         //String appCode = "f4af1866-72bc-4efd-9aca-9fb2c06d600c";
         //String result = apiAppService.info_by_app_code(accessTokenService.getAccessToken(),appCode);
-        String result = apiAppService.info_by_app_code(accessTokenService.getAccessToken());
+        String result = apiAppService.info_by_app_code(apiAccessTokenService.getAccessToken());
         System.out.println(result);
     }
 }
