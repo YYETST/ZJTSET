@@ -15,7 +15,7 @@ import java.io.IOException;
  * @author nishch
  * @version 1.0
  * @date 2020/3/11
- * @des  组织单元测试类
+ * @des  单点登录测试类
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
