@@ -31,4 +31,15 @@ public class UserInfoListTest {
         System.out.println(result);
     }
 
+
+    /**
+     * 根据手机号获取用户信息
+     * userid就是yhtuserid
+     */
+    @Test
+    public void getUserInfoByMobile() throws Exception {
+        String result = apiUserInfoListService.detailByMobile(apiAccessTokenService.getAccessToken(),"18810487612");
+        System.out.println(result);
+    }
+
 }

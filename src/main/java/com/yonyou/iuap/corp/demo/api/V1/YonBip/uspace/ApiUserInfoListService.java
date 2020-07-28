@@ -24,6 +24,8 @@ public class ApiUserInfoListService extends BaseApi{
     private static final Logger logger = LoggerFactory.getLogger(ApiMessageService.class);
     @Value("${api.user.page_list}")
     private String user_page_list;
+    @Value("${api.user.detail_mobile}")
+    private String detail_mobile;
     //设置默认的查询页码
     public static final String pageIndex ="1";
     //设置默认的每页显示数量
@@ -34,6 +36,16 @@ public class ApiUserInfoListService extends BaseApi{
         String requestUrl = user_page_list + "?access_token=" + accessToken;
         if(!params.containsKey("index"))params.put("index",pageIndex);
         if(!params.containsKey("size"))params.put("size",pageSize);
+        String result = HttpClientUtil.jsonPost(requestUrl,params);
+        logger.info("list reslut:{}",result);
+        return result;
+    }
+
+
+    public String detailByMobile(String accessToken,String mobile) throws Exception {
+        Map<String,Object> params = new HashMap<>();
+        String requestUrl = detail_mobile + "?access_token=" + accessToken;
+        params.put("searchcode",mobile);
         String result = HttpClientUtil.jsonPost(requestUrl,params);
         logger.info("list reslut:{}",result);
         return result;
