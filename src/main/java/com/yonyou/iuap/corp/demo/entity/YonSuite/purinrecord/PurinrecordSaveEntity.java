@@ -41,6 +41,7 @@ public class PurinrecordSaveEntity {
         private String taxRate ; //税率
         private String product ; //物料id
         private int contactsQuantity; //	应收数量
+        private float qty; //数量
     }
 
 

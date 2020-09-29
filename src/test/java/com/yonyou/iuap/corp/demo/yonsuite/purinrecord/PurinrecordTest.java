@@ -54,6 +54,7 @@ public class PurinrecordTest {
         children.setProduct("1641556234555648");
         //库存业务不允许数量、应收/发数量同时为空
         children.setContactsQuantity(100);
+        children.setQty(11.11f);
         children.set_status("Insert");
         listCh.add(children);
         saveEntity.setPurInRecords(listCh);
