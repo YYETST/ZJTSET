@@ -27,14 +27,22 @@ public class TranstypeTest {
     TranstypeService transtypeService;
 
     /**
+     * 获取交易类型树
+     */
+    @Test
+    public void getTranstypeTree() throws Exception {
+        Map<String, Object> params  = new HashMap<String, Object>();
+        Object result = transtypeService.tree(params);
+    }
+
+    /**
      * 获取交易类型列表
      */
     @Test
     public void getTranstypeList() throws Exception {
         Map<String, Object> params  = new HashMap<String, Object>();
-        params.put("treename","bd.bill.BillTypeVO");
-        List<TranstypeHeadEntity> result = transtypeService.list(params);
-        System.out.println(result.toString());
+        params.put("path","15");
+        Object result = transtypeService.list(params);
     }
 
 
@@ -46,6 +54,5 @@ public class TranstypeTest {
         Map<String, Object> params  = new HashMap<String, Object>();
         params.put("id","1641526656504064");
         TranstypeBodyEntity result = transtypeService.detail(params);
-        System.out.println(result.toString());
     }
 }

@@ -26,6 +26,8 @@ public class SingleSignOnService extends BaseApi {
     @Value("${api.sso.access}")
     private String access_uri;
 
+    private String access_tet = "http://www.baidu.com";
+
     /**
      * 获取单点登录地址
      * @param entity
@@ -34,7 +36,7 @@ public class SingleSignOnService extends BaseApi {
     public String getSingleSignOnUrl(ThirdUserEntity entity) throws Exception {
         String code = getCode(entity);
         String thirdUCId = entity.getThirdUcId();
-        String service = URLEncoder.encode(access_uri,"utf-8");
+        String service = URLEncoder.encode(access_tet,"utf-8");
         String url = openys_uri+"?thirdUCId="+thirdUCId+"&code="+code+"&service="+service;
         return url;
     }

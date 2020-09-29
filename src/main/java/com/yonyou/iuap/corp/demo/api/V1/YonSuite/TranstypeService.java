@@ -7,6 +7,7 @@ import com.yonyou.iuap.corp.demo.entity.YonSuite.transtype.TranstypeHeadEntity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,14 +26,35 @@ public class TranstypeService extends BaseApi {
     private String detail_uri;
     @Value("${api.transtype.save}")
     private String save_uri;
+    @Value("${api.transtype.tree}")
+    private String tree_uri;
 
+
+    /**
+     * 获取交易类型树
+     * @param params
+     * @return
+     * @throws Exception
+     */
+    public Object tree(Map<String, Object> params) throws Exception {
+        return doPost(tree_uri,params,Object.class);
+    }
     /**
      * 获取交易类型列表
      * @param params
      * @return
      */
-    public List<TranstypeHeadEntity> list(Map<String, Object> params) throws Exception {
-        List<TranstypeHeadEntity> result = doPost(list_uri,params,new TypeReference<List<TranstypeHeadEntity>>(){});
+    public Object list(Map<String, Object> params) throws Exception {
+        if(null==params){
+            params = new HashMap<>();
+        }
+        if(!params.containsKey("page")){
+            Map<String, Object> page = new HashMap<>();
+            if(!page.containsKey("pageIndex"))page.put("pageIndex",pageIndex);
+            if(!page.containsKey("pageSize"))page.put("pageSize",pageSize);
+            params.put("page",page);
+        }
+        Object result = doPost(list_uri,params,Object.class);
         return result;
     }
 

@@ -1,6 +1,7 @@
 package com.yonyou.iuap.corp.demo.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import groovy.util.logging.Slf4j;
 import org.apache.http.client.config.CookieSpecs;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
@@ -14,6 +15,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.IOException;
 import java.util.Map;
 
+@Slf4j
 public class RequestTool {
 
     private static final String HEADER_CONTENT_JSON = "application/json";
@@ -134,6 +136,7 @@ public class RequestTool {
     public static String doPost(String requestUrl, Object param) throws IOException {
         CloseableHttpClient httpClient = getHttpClient();
         HttpPost post=new HttpPost(requestUrl);
+        post.setHeader("Content-Type","application/json;charset=UTF-8");
         ObjectMapper mapper = new ObjectMapper();
         String requestParam = mapper.writeValueAsString(param);
         System.out.println("这是请求参数:"+requestParam);

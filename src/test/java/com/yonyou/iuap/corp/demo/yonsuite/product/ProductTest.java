@@ -32,7 +32,6 @@ public class ProductTest {
     public void getProductList() throws Exception {
         Map<String, Object> params  = new HashMap<String, Object>();
         ProductHeadEntity result = productProService.list(params);
-        System.out.println(result.toString());
     }
 
 
@@ -87,7 +86,7 @@ public class ProductTest {
         body.setDetailfMarketPrice(21.1F);
         body.setPubts("2020-03-11 15:32:10");
 
-        /*body.setRealProductAttributeType(1);
+        body.setRealProductAttributeType(1);
         body.setDetailsaleChannel("1,2,3");
         body.setDetailiUOrderStatus(false);
         body.setDetailcanSale(true);
@@ -105,33 +104,8 @@ public class ProductTest {
         body.setDetailenableSubscribe(false);
         body.setDetaildepositDealPayType(0);
         body.setDetailenablemodifyDeposit(false);
-        body.setDetaildepositPayType(0);*/
+        body.setDetaildepositPayType(0);
 
-        /*"detail!serviceDurationUnit": 1,
-                "detail!canOrder": false,
-                "detail!onlyOrder": false,
-                "detail!orderAdvanceTime": 0,
-                "detail!iEnableCyclePurchase": false,
-                "detail!isAllArea": false,
-                "detail!iEnableEcontract": false,
-                "detail!isRecommend": false,
-                "detail!allowStorePurchase": true,
-                "detail!isSaleInOfflineStore": false,
-                "detail!isPriceChangeAllowed": false,
-                "detail!isOfflineStoreOrder": false,
-                "detail!isOfflineStoreReturn": true,
-                "detail!retailPriceDimension": 1,
-                "detail!isProcess": false,
-                "detail!processType": 0,
-                "detail!isMaterial": false,
-                "detail!isWeight": false,
-                "define!productId": 1623168294916352,
-                "productBarCodes": [],
-        "productspecitems": [],
-        "_status": "Update",
-                "productApplyRangeId": 1623168295866734,
-                "isCreator": true,
-                "isApplied": true*/
         ProductBodyEntity result = productProService.save(body);
         System.out.println(result);
     }

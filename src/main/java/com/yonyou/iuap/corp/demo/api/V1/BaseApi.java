@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -44,6 +45,11 @@ public abstract class BaseApi {
         return mapper.readValue(getRequestData(RequestTool.doGet(requestUrl, paramMap,false)), typeReference);
     }
 
+    public String doGet(String requestUrl, Map<String, Object> paramMap) throws Exception {
+        String url = getUrl(requestUrl);
+        return RequestTool.doGet(url,paramMap,false);
+    }
+
     public  <T> T doGetMark(String requestUrl, Map<String, Object> paramMap, Class<T> type) throws Exception {
         return mapper.readValue(getRequestData(RequestTool.doGet(requestUrl, paramMap,true)), type);
     }
@@ -76,6 +82,9 @@ public abstract class BaseApi {
      * @return
      */
     public <T> T requestPostPage2(String requestUri,Map<String,Object> params,Class<T> type) throws Exception {
+        if(null==params){
+            params = new HashMap<String,Object>();
+        }
         if(!params.containsKey("pageIndex"))params.put("pageIndex",pageIndex);
         if(!params.containsKey("pageSize"))params.put("pageSize",pageSize);
         return doPost(requestUri,params,type);
@@ -105,4 +114,6 @@ public abstract class BaseApi {
         String access_token = token.createToken();
         return requestUri+"?access_token="+access_token;
     }
+
+
 }

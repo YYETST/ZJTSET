@@ -2,6 +2,7 @@ package com.yonyou.iuap.corp.demo.yonsuite.product;
 
 import com.yonyou.iuap.corp.demo.api.V1.YonSuite.product.ProclassService;
 import com.yonyou.iuap.corp.demo.entity.YonSuite.product.ProClassListEntity;
+import com.yonyou.iuap.corp.demo.entity.YonSuite.product.ProClassSaveEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class ProClassTest {
     public void getProClassList() throws Exception {
         Map<String, Object> params  = new HashMap<String, Object>();
         params.put("treename","pc.cls.ManagementClass");
+        params.put("parent","12422");
         List<ProClassListEntity> result = proclassService.list(params);
         //获取物料分类详情需要用到
         System.out.println("id:"+result.get(0).getId());
@@ -46,6 +48,16 @@ public class ProClassTest {
         Map<String, Object> params  = new HashMap<String, Object>();
         params.put("id","1641547087630592");
         ProClassListEntity result = proclassService.detail(params);
+        System.out.println(result.toString());
+    }
+
+    /**
+     * 获取物料分类保存
+     */
+    @Test
+    public void proClassSave() throws Exception {
+        ProClassSaveEntity params = new ProClassSaveEntity("111","111");
+        ProClassListEntity result = proclassService.save(params);
         System.out.println(result.toString());
     }
 }
