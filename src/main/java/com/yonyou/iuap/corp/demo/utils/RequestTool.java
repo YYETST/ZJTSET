@@ -1,5 +1,6 @@
 package com.yonyou.iuap.corp.demo.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import groovy.util.logging.Slf4j;
 import org.apache.http.client.config.CookieSpecs;
@@ -137,10 +138,12 @@ public class RequestTool {
         CloseableHttpClient httpClient = getHttpClient();
         HttpPost post=new HttpPost(requestUrl);
         post.setHeader("Content-Type","application/json;charset=UTF-8");
-        ObjectMapper mapper = new ObjectMapper();
-        String requestParam = mapper.writeValueAsString(param);
-        System.out.println("这是请求参数:"+requestParam);
-        post.setEntity(new StringEntity(requestParam));
+//        ObjectMapper mapper = new ObjectMapper();
+//        String requestParam = mapper.writeValueAsString(param);
+//        System.out.println("这是请求参数:"+requestParam);
+        post.setHeader("token", "096d2e64fb82804e52c69c162f8dc580");
+        post.setHeader("appKey", "ad9b910f0710952f");
+        post.setEntity(new StringEntity((String) JSONObject.toJSONString(param),"utf-8"));
         String responseString = httpClient.execute(post, response -> EntityUtils.toString(response.getEntity()));
         System.out.println("这是返回数据："+responseString);
         return responseString;

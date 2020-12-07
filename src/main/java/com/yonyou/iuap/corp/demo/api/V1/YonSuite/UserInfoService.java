@@ -24,6 +24,9 @@ public class UserInfoService extends BaseApi {
     @Value("${api.staff.list}")
     private String LIST_URL;
 
+    @Value("${api.user.user_id}")
+    private String user_id_uri;
+
     /**
      * 根据手机号获取员工信息
      * @param params
@@ -37,6 +40,11 @@ public class UserInfoService extends BaseApi {
 
     public List<UserInfoEntity> list(Map<String, Object> params) throws Exception {
         return doPost(LIST_URL, params, new TypeReference<List<UserInfoEntity>>(){});
+    }
+
+
+    public List<UserInfoEntity> listByUserId(Map<String,Object> map) throws Exception {
+        return doPost(user_id_uri, map, new TypeReference<List<UserInfoEntity>>(){});
     }
 
 }
